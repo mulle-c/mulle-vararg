@@ -1,0 +1,11 @@
+.DS_Store
+*[Bb]uild/
+.idea/
+.repos/
+xcuserdata/
+project.xcworkspace/
+*.old
+.bootstrap.auto/
+.bootstrap.local/
+dependencies/
+mulle-configuration/
