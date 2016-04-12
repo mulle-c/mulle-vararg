@@ -10,6 +10,8 @@
 #define mulle_align_h__
 
 #include <stdalign.h>
+#include <stdint.h>
+#include <stddef.h>
 
 
 __attribute(( const))

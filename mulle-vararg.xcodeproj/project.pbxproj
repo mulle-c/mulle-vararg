@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		41998A2F1CB668C400D18DD8 /* mulle_align.h in Headers */ = {isa = PBXBuildFile; fileRef = 41998A2D1CB668C400D18DD8 /* mulle_align.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41998A301CB668C400D18DD8 /* mulle_vararg.h in Headers */ = {isa = PBXBuildFile; fileRef = 41998A2E1CB668C400D18DD8 /* mulle_vararg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41998A4A1CB66AF200D18DD8 /* mulle_vararg.c in Sources */ = {isa = PBXBuildFile; fileRef = 41998A491CB66AF200D18DD8 /* mulle_vararg.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		41998A251CB668A200D18DD8 /* libmulle-vararg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libmulle-vararg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41998A251CB668A200D18DD8 /* libmulle_vararg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmulle_vararg.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		41998A2D1CB668C400D18DD8 /* mulle_align.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mulle_align.h; sourceTree = "<group>"; };
 		41998A2E1CB668C400D18DD8 /* mulle_vararg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mulle_vararg.h; sourceTree = "<group>"; };
 		41998A321CB6693400D18DD8 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		41998A3F1CB6693400D18DD8 /* _Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = _Common.xcconfig; sourceTree = "<group>"; };
 		41998A401CB6693400D18DD8 /* generate-dot.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-dot.sh"; sourceTree = "<group>"; };
 		41998A411CB6693400D18DD8 /* update-all-configurations.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "update-all-configurations.sh"; sourceTree = "<group>"; };
+		41998A491CB66AF200D18DD8 /* mulle_vararg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mulle_vararg.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,7 @@
 		41998A261CB668A200D18DD8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41998A251CB668A200D18DD8 /* libmulle-vararg.a */,
+				41998A251CB668A200D18DD8 /* libmulle_vararg.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +92,7 @@
 			children = (
 				41998A2D1CB668C400D18DD8 /* mulle_align.h */,
 				41998A2E1CB668C400D18DD8 /* mulle_vararg.h */,
+				41998A491CB66AF200D18DD8 /* mulle_vararg.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -132,9 +135,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		41998A241CB668A200D18DD8 /* mulle-vararg */ = {
+		41998A241CB668A200D18DD8 /* mulle_vararg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 41998A291CB668A200D18DD8 /* Build configuration list for PBXNativeTarget "mulle-vararg" */;
+			buildConfigurationList = 41998A291CB668A200D18DD8 /* Build configuration list for PBXNativeTarget "mulle_vararg" */;
 			buildPhases = (
 				41998A211CB668A200D18DD8 /* Sources */,
 				41998A221CB668A200D18DD8 /* Frameworks */,
@@ -144,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = "mulle-vararg";
+			name = mulle_vararg;
 			productName = "mulle-vararg";
-			productReference = 41998A251CB668A200D18DD8 /* libmulle-vararg.a */;
+			productReference = 41998A251CB668A200D18DD8 /* libmulle_vararg.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +182,7 @@
 			projectRoot = "";
 			targets = (
 				41998A421CB669A300D18DD8 /* Libraries */,
-				41998A241CB668A200D18DD8 /* mulle-vararg */,
+				41998A241CB668A200D18DD8 /* mulle_vararg */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41998A4A1CB66AF200D18DD8 /* mulle_vararg.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +201,7 @@
 /* Begin PBXTargetDependency section */
 		41998A471CB669B100D18DD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 41998A241CB668A200D18DD8 /* mulle-vararg */;
+			target = 41998A241CB668A200D18DD8 /* mulle_vararg */;
 			targetProxy = 41998A461CB669B100D18DD8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -255,7 +259,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		41998A291CB668A200D18DD8 /* Build configuration list for PBXNativeTarget "mulle-vararg" */ = {
+		41998A291CB668A200D18DD8 /* Build configuration list for PBXNativeTarget "mulle_vararg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				41998A2A1CB668A200D18DD8 /* Debug */,
