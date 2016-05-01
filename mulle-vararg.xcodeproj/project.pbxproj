@@ -57,6 +57,7 @@
 		41998A401CB6693400D18DD8 /* generate-dot.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-dot.sh"; sourceTree = "<group>"; };
 		41998A411CB6693400D18DD8 /* update-all-configurations.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "update-all-configurations.sh"; sourceTree = "<group>"; };
 		41998A491CB66AF200D18DD8 /* mulle_vararg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mulle_vararg.c; sourceTree = "<group>"; };
+		41D2265C1CD65CB800C06D8C /* RELEASENOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASENOTES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		41998A1C1CB668A200D18DD8 = {
 			isa = PBXGroup;
 			children = (
+				41D2265C1CD65CB800C06D8C /* RELEASENOTES.md */,
 				41998A311CB6693400D18DD8 /* mulle-configuration */,
 				41998A2C1CB668AD00D18DD8 /* src */,
 				41998A261CB668A200D18DD8 /* Products */,
@@ -211,6 +213,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41998A331CB6693400D18DD8 /* Debug.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.1;
 			};
 			name = Debug;
 		};
@@ -218,6 +221,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41998A3A1CB6693400D18DD8 /* Release.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 0.1;
 			};
 			name = Release;
 		};
@@ -266,6 +270,7 @@
 				41998A2B1CB668A200D18DD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41998A431CB669A300D18DD8 /* Build configuration list for PBXAggregateTarget "Libraries" */ = {
 			isa = XCConfigurationList;
@@ -274,6 +279,7 @@
 				41998A451CB669A300D18DD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

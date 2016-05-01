@@ -11,7 +11,7 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (0 << 8) | 0)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (1 << 8) | 0)
 
 
 /*
