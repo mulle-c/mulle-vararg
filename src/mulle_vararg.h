@@ -11,7 +11,7 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (1 << 8) | 0)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (2 << 8) | 0)
 
 
 /*
@@ -68,7 +68,7 @@ while( 0)
    type   *q;                                               \
                                                             \
    q      = (type *) mulle_align_pointer( args.p, sizeof( type) < sizeof( int) ? alignof( int) : alignof( type)); \
-   args.p = &((char *) args.p)[ sizeof( type) < sizeof( int) ? sizeof( int) : sizeof( type)];  \
+   args.p = &((char *) q)[ sizeof( type) < sizeof( int) ? sizeof( int) : sizeof( type)];  \
                                                             \
    (sizeof( type) < sizeof( int) ? (type) *(int *) q : *q); \
 })
@@ -80,7 +80,7 @@ while( 0)
    id   *q;                                                     \
                                                                 \
    q      = (id *) mulle_align_pointer( args.p, alignof( id));  \
-   args.p = &((char *) args.p)[ sizeof( id)];                   \
+   args.p = &((char *) q)[ sizeof( id)];                        \
                                                                 \
    *q;                                                          \
 })
@@ -93,7 +93,7 @@ while( 0)
    type   *q;                                                   \
                                                                 \
    q      = (type *) mulle_align_pointer( args.p, alignof( void *)); \
-   args.p = &((char *) args.p)[ sizeof( void *)];               \
+   args.p = &((char *) q)[ sizeof( void *)];                    \
                                                                 \
    *q;                                                          \
 })
@@ -109,7 +109,7 @@ while( 0)
    type   *q;                                                   \
                                                                 \
    q      = (type *) mulle_align_pointer( args.p, alignof( type)); \
-   args.p = &((char *) args.p)[ sizeof( type)];                 \
+   args.p = &((char *) q)[ sizeof( type)];                      \
                                                                 \
    *q;                                                          \
 })
@@ -121,7 +121,7 @@ while( 0)
    type   *q;                                                     \
                                                                   \
    q      = (type *) mulle_align_pointer( args.p, sizeof( type) < sizeof( double) ? alignof( double) : alignof( type)); \
-   args.p = &((char *) args.p)[ sizeof( type) < sizeof( double) ? sizeof( double) : sizeof( type)]; \
+   args.p = &((char *) q)[ sizeof( type) < sizeof( double) ? sizeof( double) : sizeof( type)]; \
                                                                   \
    (sizeof( type) < sizeof( double) ? (type) *(double *) q : *q); \
 })
