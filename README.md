@@ -18,7 +18,7 @@ which is called like this
 [NSString stringWithFormat:@"%d %f %lld", (char) 'x', (float) 0.2, 1848LL];
 ```
 
-could access the arguments as if they were in a struct like this
+could access the arguments as if they were embedded in a struct like this
 
 ```
 struct
@@ -33,4 +33,4 @@ struct
 } _param;
 ```
 
-But that's what mulle-vararg does for you.
+But accsessing those values, that's what mulle-vararg does for you.
