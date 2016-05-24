@@ -16,8 +16,12 @@ src/mulle_align.h
 src/mulle_vararg.h
 )
 
-add_library(mulle_vararg
+set( SOURCES
 src/mulle_vararg.c
+)
+
+add_library(mulle_vararg
+${SOURCES}
 )
 
 
