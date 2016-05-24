@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		415867FC1CF4567E003CF8CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		41998A251CB668A200D18DD8 /* libmulle_vararg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmulle_vararg.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		41998A2D1CB668C400D18DD8 /* mulle_align.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mulle_align.h; sourceTree = "<group>"; };
 		41998A2E1CB668C400D18DD8 /* mulle_vararg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mulle_vararg.h; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		41998A1C1CB668A200D18DD8 = {
 			isa = PBXGroup;
 			children = (
+				415867FC1CF4567E003CF8CF /* README.md */,
 				41D2265C1CD65CB800C06D8C /* RELEASENOTES.md */,
 				41998A311CB6693400D18DD8 /* mulle-configuration */,
 				41998A2C1CB668AD00D18DD8 /* src */,
