@@ -216,6 +216,7 @@
 			baseConfigurationReference = 41998A331CB6693400D18DD8 /* Debug.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 0.2;
+				GCC_C_LANGUAGE_STANDARD = c99;
 			};
 			name = Debug;
 		};
@@ -224,6 +225,7 @@
 			baseConfigurationReference = 41998A3A1CB6693400D18DD8 /* Release.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 0.2;
+				GCC_C_LANGUAGE_STANDARD = c99;
 			};
 			name = Release;
 		};

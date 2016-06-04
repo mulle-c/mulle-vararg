@@ -11,7 +11,7 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (2 << 8) | 0)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (3 << 8) | 0)
 
 
 /*
@@ -62,41 +62,51 @@ do                                             \
 while( 0)
 
 
+
+
 // use this for integer types
-#define mulle_vararg_next_integer( args, type)              \
-({                                                          \
-   type   *q;                                               \
-                                                            \
-   q      = (type *) mulle_align_pointer( args.p, sizeof( type) < sizeof( int) ? alignof( int) : alignof( type)); \
-   args.p = &((char *) q)[ sizeof( type) < sizeof( int) ? sizeof( int) : sizeof( type)];  \
-                                                            \
-   (sizeof( type) < sizeof( int) ? (type) *(int *) q : *q); \
-})
+
+static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+{
+   char   *q;
+   
+   if( size < sizeof( int))
+   {
+      align = sizeof( int);
+      size  = sizeof( int);
+   }
+   
+   q       = mulle_align_pointer( args->p, align);
+   args->p = &q[ size];
+   return( q);
+}
+   
+
+#define mulle_vararg_next_integer( args, type)                                                   \
+   (sizeof( type) < sizeof( int)                                                                 \
+      ? (type) *(int *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( type)) \
+      : *(type *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( type)))
 
 
-// use this for objects types
-#define mulle_vararg_next( args)                                \
-({                                                              \
-   id   *q;                                                     \
-                                                                \
-   q      = (id *) mulle_align_pointer( args.p, alignof( id));  \
-   args.p = &((char *) q)[ sizeof( id)];                        \
-                                                                \
-   *q;                                                          \
-})
+static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, unsigned int align)
+{
+   char   *q;
+   
+   q       = mulle_align_pointer( args->p, align);
+   args->p = &q[ sizeof( void *)];
+   return( q);
+}
+
 
 
 
 // use this for all pointer and id types
 #define mulle_vararg_next_pointer( args, type)                  \
-({                                                              \
-   type   *q;                                                   \
-                                                                \
-   q      = (type *) mulle_align_pointer( args.p, alignof( void *)); \
-   args.p = &((char *) q)[ sizeof( void *)];                    \
-                                                                \
-   *q;                                                          \
-})
+   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
+
+// use this for objects types
+#define mulle_vararg_next( args)                               \
+   mulle_vararg_next_pointer( args, id)
 
 // synonym
 #define mulle_vararg_next_object( args, type)                  \
@@ -105,26 +115,32 @@ while( 0)
 
 // use this for all struct types
 #define mulle_vararg_next_struct( args, type)                   \
-({                                                              \
-   type   *q;                                                   \
-                                                                \
-   q      = (type *) mulle_align_pointer( args.p, alignof( type)); \
-   args.p = &((char *) q)[ sizeof( type)];                      \
-                                                                \
-   *q;                                                          \
-})
+   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
+
+
+static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+{
+   char   *q;
+   
+   if( size < sizeof( double))
+   {
+      align = sizeof( double);
+      size  = sizeof( double);
+   }
+   
+   q       = mulle_align_pointer( args->p, align);
+   args->p = &q[ size];
+   return( q);
+}
 
 
 // need separate routine for FP arguments, as float promotes to double
-#define mulle_vararg_next_fp( args, type)                         \
-({                                                                \
-   type   *q;                                                     \
-                                                                  \
-   q      = (type *) mulle_align_pointer( args.p, sizeof( type) < sizeof( double) ? alignof( double) : alignof( type)); \
-   args.p = &((char *) q)[ sizeof( type) < sizeof( double) ? sizeof( double) : sizeof( type)]; \
-                                                                  \
-   (sizeof( type) < sizeof( double) ? (type) *(double *) q : *q); \
-})
+#define mulle_vararg_next_fp( args, type)                                                           \
+   (sizeof( type) < sizeof( double)                                                                 \
+      ? (type) *(int *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)) \
+      : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)))
+
+
 
 
 #define mulle_vararg_copy( dst, src)         \

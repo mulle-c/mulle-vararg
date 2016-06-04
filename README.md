@@ -1,6 +1,7 @@
 # mulle-vararg
 
-The variable argument passing scheme used in the MetaABI of mulle_objc.
+The variable argument passing scheme used in the MetaABI of mulle-objc.
+Written in C (C11).
 
 ## How it works
 
