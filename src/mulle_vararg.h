@@ -98,23 +98,21 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 }
 
 
-
-
 // use this for all pointer and id types
-#define mulle_vararg_next_pointer( args, type)                  \
+#define mulle_vararg_next_pointer( args, type)  \
    (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
 
 // use this for objects types
-#define mulle_vararg_next( args)                               \
+#define mulle_vararg_next( args)                \
    mulle_vararg_next_pointer( args, id)
 
 // synonym
-#define mulle_vararg_next_object( args, type)                  \
+#define mulle_vararg_next_object( args, type)    \
    mulle_vararg_next_pointer( args, type)
 
 
 // use this for all struct types
-#define mulle_vararg_next_struct( args, type)                   \
+#define mulle_vararg_next_struct( args, type)    \
    (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
 
 
@@ -135,9 +133,9 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
 
 
 // need separate routine for FP arguments, as float promotes to double
-#define mulle_vararg_next_fp( args, type)                                                           \
-   (sizeof( type) < sizeof( double)                                                                 \
-      ? (type) *(int *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)) \
+#define mulle_vararg_next_fp( args, type)                                                              \
+   (sizeof( type) < sizeof( double)                                                                    \
+      ? (type) *(double *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)) \
       : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)))
 
 
