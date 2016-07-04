@@ -11,7 +11,7 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (3 << 8) | 0)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (4 << 8) | 0)
 
 
 /*
@@ -82,10 +82,10 @@ static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
 }
    
 
-#define mulle_vararg_next_integer( args, type)                                                   \
-   (sizeof( type) < sizeof( int)                                                                 \
-      ? (type) *(int *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( type)) \
-      : *(type *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( type)))
+#define mulle_vararg_next_integer( args, type)                                                                \
+   (sizeof( type) < sizeof( int)                                                                              \
+      ? (type) *(int *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })) \
+      : *(type *) _mulle_vararg_int_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })))
 
 
 static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, unsigned int align)
@@ -100,7 +100,7 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 
 // use this for all pointer and id types
 #define mulle_vararg_next_pointer( args, type)  \
-   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
+   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
 
 // use this for objects types
 #define mulle_vararg_next( args)                \
@@ -113,7 +113,7 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 
 // use this for all struct types
 #define mulle_vararg_next_struct( args, type)    \
-   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( type)))
+   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
 
 
 static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
@@ -133,10 +133,10 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
 
 
 // need separate routine for FP arguments, as float promotes to double
-#define mulle_vararg_next_fp( args, type)                                                              \
-   (sizeof( type) < sizeof( double)                                                                    \
-      ? (type) *(double *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)) \
-      : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( type)))
+#define mulle_vararg_next_fp( args, type)                                                                           \
+   (sizeof( type) < sizeof( double)                                                                                 \
+      ? (type) *(double *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })) \
+      : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })))
 
 
 

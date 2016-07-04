@@ -34,4 +34,4 @@ struct
 } _param;
 ```
 
-But accsessing those values, that's what mulle-vararg does for you.
+But accessing those values, that's what mulle-vararg does for you.
