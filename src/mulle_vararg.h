@@ -72,8 +72,8 @@ static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
    
    if( size < sizeof( int))
    {
-      align = sizeof( int);
       size  = sizeof( int);
+      align = alignof( int);
    }
    
    q       = mulle_align_pointer( args->p, align);
@@ -122,8 +122,8 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
    
    if( size < sizeof( double))
    {
-      align = sizeof( double);
       size  = sizeof( double);
+      align = alignof( double);
    }
    
    q       = mulle_align_pointer( args->p, align);
