@@ -14,11 +14,11 @@
 #include <stddef.h>
 
 
-MULLE_CONST_VALUE_RETURN
+MULLE_C_CONST_RETURN
 static inline uintptr_t   mulle_align( uintptr_t p, unsigned int alignment)
 {
    intptr_t   misalignment;
-   
+
    if( alignment)
    {
       misalignment = p % alignment;
@@ -29,7 +29,7 @@ static inline uintptr_t   mulle_align( uintptr_t p, unsigned int alignment)
 }
 
 
-MULLE_CONST_VALUE_RETURN
+MULLE_C_CONST_RETURN
 static inline void   *mulle_align_pointer( void *p, unsigned int alignment)
 {
    return( (void *) mulle_align( (uintptr_t) p, alignment));
