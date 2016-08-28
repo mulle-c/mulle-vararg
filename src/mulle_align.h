@@ -9,25 +9,9 @@
 #ifndef mulle_align_h__
 #define mulle_align_h__
 
+#include <mulle_c11/mulle_c11.h>
 #include <stdint.h>
 #include <stddef.h>
-
-// ugliness creeps in due to windows
-#ifdef _WIN32
-# define alignof( x)  __alignof( x)
-#else
-# include <stdalign.h>
-#endif
-
-#if ! defined( __clang__) && ! defined( __GNUC__)
-# ifndef MULLE_CONST_VALUE_RETURN
-#  define MULLE_CONST_VALUE_RETURN   __attribute__(( const))
-# endif
-#else
-# ifndef MULLE_CONST_VALUE_RETURN
-#  define MULLE_CONST_VALUE_RETURN
-# endif
-#endif
 
 
 MULLE_CONST_VALUE_RETURN
