@@ -31,3 +31,46 @@ INSTALL(TARGETS mulle_vararg DESTINATION "lib")
 INSTALL(FILES ${HEADERS} DESTINATION "include/mulle_vararg")
 
 
+#
+# standalone shared library (for tests)
+#
+
+if( MSVC)
+  set( DEF_FILE mulle_vararg_standalone.def)
+  set_source_files_properties( ${DEF_FILE} PROPERTIES HEADER_FILE_ONLY TRUE)
+  set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF)
+  set( CMAKE_SHARED_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /DEF:${DEF_FILE}")
+  # /NODEFAULTLIB:MSVCRT")
+endif()
+
+
+add_library( mulle_vararg_standalone SHARED
+src/mulle_vararg_standalone.c
+${DEF_FILE}
+)
+
+add_dependencies( mulle_vararg_standalone mulle_vararg)
+
+
+set( DEPENDENCY_LIBRARIES
+)
+
+
+if( MSVC)
+   add_custom_command( OUTPUT ${DEF_FILE}
+                       COMMAND mulle-mingw-dumpdef.bat -o "${DEF_FILE}" --prefix "mulle" ${DEPENDENCY_LIBRARIES} $<TARGET_FILE:mulle_vararg>
+                       DEPENDS "${DEPENDENCY_LIBRARIES}" mulle_vararg
+                       VERBATIM)
+endif()
+
+
+TARGET_LINK_LIBRARIES( mulle_vararg_standalone
+${BEGIN_ALL_LOAD}
+mulle_vararg
+${DEPENDENCY_LIBRARIES}
+${END_ALL_LOAD}
+)
+
+
+INSTALL( TARGETS mulle_vararg_standalone DESTINATION "lib")
+

@@ -69,18 +69,18 @@ while( 0)
 static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
 {
    char   *q;
-   
+
    if( size < sizeof( int))
    {
       size  = sizeof( int);
       align = alignof( struct{ int x; });  // weirdness for i386
    }
-   
+
    q       = mulle_align_pointer( args->p, align);
    args->p = &q[ size];
    return( q);
 }
-   
+
 
 #define mulle_vararg_next_integer( args, type)                                                                \
    (sizeof( type) < sizeof( int)                                                                              \
@@ -91,7 +91,7 @@ static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
 static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, unsigned int align)
 {
    char   *q;
-   
+
    q       = mulle_align_pointer( args->p, align);
    args->p = &q[ sizeof( void *)];
    return( q);
@@ -119,13 +119,13 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
 {
    char   *q;
-   
+
    if( size < sizeof( double))
    {
       size  = sizeof( double);
       align = alignof( struct{ double x; });  // weirdness for i386
    }
-   
+
    q       = mulle_align_pointer( args->p, align);
    args->p = &q[ size];
    return( q);
@@ -165,8 +165,8 @@ static inline size_t    mulle_vararg_count( mulle_vararg_list args, void *object
       ++count;
       p = mulle_vararg_next_pointer( args, void *);
    }
-   
+
    return( count);
 }
-   
+
 #endif /* mulle_vararg_h */
