@@ -1,19 +1,18 @@
 # mulle-vararg
 
-The variable argument passing scheme used in the MetaABI of mulle-objc.
-Written in C (C11).
+A variable argument passing scheme used written in C (C11).
 
 ## How it works
 
 ### Remember the C argument promotion rules
 
-1. char and short to int/unsigned int 
+1. char and short to int/unsigned int
 2. float to double
 
 ### The arguments are layed out struct-like
 
 A method like `stringWithFormat:(NSString *) format, ...`
-which is called like this 
+which is called like this
 
 ```
 [NSString stringWithFormat:@"%d %f %lld", (char) 'x', (float) 0.2, 1848LL];
@@ -25,7 +24,7 @@ could access the arguments as if they were embedded in a struct like this
 struct
 {
    NSString  *format;
-   struct 
+   struct
    {
       int         value1;
       double      value2;

@@ -15,7 +15,7 @@
 
 
 MULLE_C_CONST_RETURN
-static inline uintptr_t   mulle_align( uintptr_t p, unsigned int alignment)
+static inline uintptr_t   mulle_address_align( uintptr_t p, unsigned int alignment)
 {
    intptr_t   misalignment;
 
@@ -30,9 +30,9 @@ static inline uintptr_t   mulle_align( uintptr_t p, unsigned int alignment)
 
 
 MULLE_C_CONST_RETURN
-static inline void   *mulle_align_pointer( void *p, unsigned int alignment)
+static inline void   *mulle_pointer_align( void *p, unsigned int alignment)
 {
-   return( (void *) mulle_align( (uintptr_t) p, alignment));
+   return( (void *) mulle_address_align( (uintptr_t) p, alignment));
 }
 
 

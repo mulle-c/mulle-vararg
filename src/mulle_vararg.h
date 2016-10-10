@@ -11,7 +11,7 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (4 << 8) | 0)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (5 << 8) | 0)
 
 
 /*
@@ -62,10 +62,7 @@ do                                             \
 while( 0)
 
 
-
-
 // use this for integer types
-
 static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
 {
    char   *q;
@@ -76,7 +73,7 @@ static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
       align = alignof( struct{ int x; });  // weirdness for i386
    }
 
-   q       = mulle_align_pointer( args->p, align);
+   q       = mulle_pointer_align( args->p, align);
    args->p = &q[ size];
    return( q);
 }
@@ -92,28 +89,30 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 {
    char   *q;
 
-   q       = mulle_align_pointer( args->p, align);
+   q       = mulle_pointer_align( args->p, align);
    args->p = &q[ sizeof( void *)];
    return( q);
 }
 
 
-// use this for all pointer and id types
+// use this for all pointer types
 #define mulle_vararg_next_pointer( args, type)  \
    (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
 
-// use this for objects types
-#define mulle_vararg_next( args)                \
-   mulle_vararg_next_pointer( args, id)
-
-// synonym
-#define mulle_vararg_next_object( args, type)    \
-   mulle_vararg_next_pointer( args, type)
-
 
 // use this for all struct types
+#define _mulle_vararg_next_struct( args, type)  \
+   ((type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+
 #define mulle_vararg_next_struct( args, type)    \
-   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+   (*_mulle_vararg_next_struct( args, type))
+
+// use this for all union types
+#define _mulle_vararg_next_union( args, type)    \
+   ((type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+
+#define mulle_vararg_next_union( args, type)    \
+   (*_mulle_vararg_next_union( args, type))
 
 
 static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
@@ -126,7 +125,7 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
       align = alignof( struct{ double x; });  // weirdness for i386
    }
 
-   q       = mulle_align_pointer( args->p, align);
+   q       = mulle_pointer_align( args->p, align);
    args->p = &q[ size];
    return( q);
 }
@@ -139,27 +138,25 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
       : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })))
 
 
-
-
-#define mulle_vararg_copy( dst, src)         \
-do                                           \
-{                                            \
-   dst = src;                                \
-}                                            \
+#define mulle_vararg_copy( dst, src)  \
+do                                    \
+{                                     \
+   dst = src;                         \
+}                                     \
 while( 0)
 
 #define mulle_vararg_end( args)
 
 
-// only works for objects and pointers
+// only works with pointers
 
-static inline size_t    mulle_vararg_count( mulle_vararg_list args, void *object)
+static inline size_t   mulle_vararg_count_pointers( mulle_vararg_list args, void *first)
 {
    size_t   count;
    void     *p;
 
    count = 0;
-   p     = object;
+   p     = first;
    while( p)
    {
       ++count;
@@ -168,5 +165,6 @@ static inline size_t    mulle_vararg_count( mulle_vararg_list args, void *object
 
    return( count);
 }
+
 
 #endif /* mulle_vararg_h */
