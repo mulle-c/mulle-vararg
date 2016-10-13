@@ -5,6 +5,7 @@
 xcuserdata/
 project.xcworkspace/
 *.old
+*.exe
 .bootstrap.auto/
 .bootstrap.local/
 dependencies/
@@ -13,3 +14,5 @@ tmp/
 research/
 addictions/
 mulle-tests/
+tests/include/
+tests/lib/

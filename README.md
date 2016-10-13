@@ -1,36 +1,79 @@
 # mulle-vararg
 
-A variable argument passing scheme used written in C (C11).
+A variable argument passing scheme written in C (C11).
+
 
 ## How it works
 
-### Remember the C argument promotion rules
+**mulle-vararg** assumes that the arguments are not layed out in stack
+alignment fashion but like in a struct. The C promotion rules are still
+observed though.
 
-1. char and short to int/unsigned int
-2. float to double
+> Remember the C argument promotion rules are
+>
+> 1. char and short to int/unsigned int
+> 2. float to double
+>
 
-### The arguments are layed out struct-like
+Let's assume there is a compiler that does not use `<stdarg.h>` variable
+arguments but **mulle-vararg** instead. It collects all arguments and packs
+them into a struct, then passes this struct to the function.
 
-A method like `stringWithFormat:(NSString *) format, ...`
-which is called like this
+A **printf** function being being called like this:
 
 ```
-[NSString stringWithFormat:@"%d %f %lld", (char) 'x', (float) 0.2, 1848LL];
+printf( "%d %f %lld\n", (char) 'x', (float) 0.2, 1848LL;
 ```
 
-could access the arguments as if they were embedded in a struct like this
+would access the arguments, as if they were embedded in a struct like this
 
 ```
 struct
 {
-   NSString  *format;
+   char    *format;
    struct
    {
-      int         value1;
-      double      value2;
+      int         value1;     // standard char -> int promotion
+      double      value2;     // standard float -> double promotion
       long long   value3;
    } varargs;
 } _param;
 ```
 
-But accessing those values, that's what mulle-vararg does for you.
+**mulle-vararg** provides the necessary functions to read such a struct. It has
+no code to create it.
+
+
+## Install
+
+On OS X and Linux you can use [homebrew](//brew.sh), respectively
+[linuxbrew](//linuxbrew.sh) to install the library:
+
+```
+brew tap mulle-kybernetik/software
+brew install mulle-vararg
+```
+
+On other platforms you can use **mulle-install** from
+[mulle-build](//www.mulle-kybernetik.com/software/git/mulle-build) to install the library:
+
+```
+mulle-install --prefix /usr/local --branch release https://www.mulle-kybernetik.com/repositories/mulle-vararg
+```
+
+
+Otherwise read:
+
+* [How to Build](dox/BUILD.md)
+
+
+## API
+
+* [Vararg](dox/API_VARARG.md)
+
+
+### Platforms and Compilers
+
+All platforms and compilers supported by
+[mulle-c11](//www.mulle-kybernetik.com/software/git/mulle-c11/)
+

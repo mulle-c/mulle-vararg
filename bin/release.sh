@@ -1,79 +1,41 @@
-#! /bin/sh
+#! /bin/sh -x
 
+#
+# These variables have to be configured on a by project basis
+#
 NAME="mulle-vararg"  # not the ruby name
+DESC="Access variable arguments in struct layout fashion"
+PROJECT=MulleVararg  # ruby requires camel-case
 HEADER="src/mulle_vararg.h"
 VERSIONNAME="MULLE_VARARG_VERSION"
 ORIGIN=public
+DEPENDENCIES=
 
+HOMEPAGE="https://www.mulle-kybernetik.com/software/git/${NAME}"
 RBFILE="${NAME}.rb"
 HOMEBREWTAP="../homebrew-software"
 
+# ARCHIVEURL will be evaled later! keep it in single quotes
+ARCHIVEURL='https://www.mulle-kybernetik.com/software/git/${NAME}/tarball/${VERSION}'
 
-get_version()
+
+main()
 {
-   local filename
+   # source it
+   . ./bin/mulle-homebrew/mulle-homebrew.sh
 
-   filename="$1"
-   fgrep "${VERSIONNAME}" "${filename}" | \
-   sed 's|(\([0-9]*\) \<\< [0-9]*)|\1|g' | \
-   sed 's|^.*(\(.*\))|\1|' | \
-   sed 's/ | /./g'
+   local VERSION  #  upper case for consistency in eval
+   local TAG
+
+   #
+   # Version has to be figured out on a per project basis
+   # get_header_version grabs the version from a header
+   #
+   VERSION="`get_header_version ${HEADER}`"
+   TAG="${1:-${VERSION}}"
+
+   git_main "${ORIGIN}" "${TAG}" || exit 1
+   homebrew_main || exit 1
 }
 
-VERSION="`get_version ${HEADER}`"
-TAG="${1:-${VERSION}}"
-
-
-directory="`mulle-bootstrap library-path 2> /dev/null`"
-[ ! -d "${directory}" ] && echo "failed to locate mulle-bootstrap library" >&2 && exit 1
-
-PATH="${directory}:$PATH"
-
-. "mulle-bootstrap-logging.sh"
-
-
-git_must_be_clean()
-{
-   local name
-   local clean
-
-   name="${1:-${PWD}}"
-
-   if [ ! -d .git ]
-   then
-      fail "\"${name}\" is not a git repository"
-   fi
-
-   clean=`git status -s --untracked-files=no`
-   if [ "${clean}" != "" ]
-   then
-      fail "repository \"${name}\" is tainted"
-   fi
-}
-
-
-[ ! -d "${HOMEBREWTAP}" ] && fail "failed to locate \"${HOMEBREWTAP}\""
-
-set -e
-
-git_must_be_clean
-
-branch="`git rev-parse --abbrev-ref HEAD`"
-
-git push "${ORIGIN}" "${branch}"
-
-# seperate step, as it's tedious to remove tag when
-# previous push fails
-
-git tag "${TAG}"
-git push "${ORIGIN}" "${branch}" --tags
-
-./bin/generate-brew-formula.sh "${VERSION}" > "${HOMEBREWTAP}/${RBFILE}"
-(
-   cd "${HOMEBREWTAP}" ;
-   git add "${RBFILE}" ;
-   git commit -m "${TAG} release of ${NAME}" "${RBFILE}" ;
-   git push origin master
-)
-
-git checkout "${branch}"
+main "$@"
