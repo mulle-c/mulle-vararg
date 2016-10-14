@@ -77,3 +77,9 @@ Otherwise read:
 All platforms and compilers supported by
 [mulle-c11](//www.mulle-kybernetik.com/software/git/mulle-c11/)
 
+## Author
+
+[Nat!](//www.mulle-kybernetik.com/weblog) for
+[Mulle kybernetiK](//www.mulle-kybernetik.com) and
+[Codeon GmbH](//www.codeon.de)
+

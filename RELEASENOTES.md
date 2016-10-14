@@ -1,3 +1,7 @@
+## 0.5.1-2
+
+* improve release script and documentation
+
 ## 0.5
 
 * renamed function `mulle_align` to `mulle_address_align`
