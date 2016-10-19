@@ -1,5 +1,7 @@
 # mulle-vararg
 
+Release on [github](//github.com/mulle-nat/mulle-vararg): [![Build Status](https://travis-ci.org/mulle-nat/mulle-allocator.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-allocator)
+
 A variable argument passing scheme written in C (C11).
 
 

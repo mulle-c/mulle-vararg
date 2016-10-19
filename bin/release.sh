@@ -4,7 +4,7 @@
 #
 #
 PROJECT="MulleVararg"    # requires camel-case
-DESC="Flexible C memory allocation scheme with leak checking"
+DESC="Access variable arguments in struct layout fashion"
 DEPENDENCIES="mulle-c11" # names not camel case
 ORIGIN=public            # git repo to push
 LANGUAGE=c               # c,cpp, objc

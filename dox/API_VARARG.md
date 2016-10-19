@@ -8,6 +8,11 @@ in stdarg you specify the type as a parameter to `va_next`, whereas in
 > Attention: **mulle-valist** is not compatible with **valist**
 
 
+## How to use it
+
+Link against `mulle_vararg` and
+`#include <mulle_vararg/mulle_vararg.h>` in your code.
+
 Here is an example. A structure is defined with two fields, **a** and **b**.
 `mulle_vararg_start` is initialized with **a**. It will now use the
 first value *AFTER* **a** as the first variable argument.
