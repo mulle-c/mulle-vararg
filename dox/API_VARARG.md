@@ -59,7 +59,7 @@ Type                | Description
 ## Macros
 
 
-### mulle_vararg_copy - copy varargs
+### `mulle_vararg_copy`
 
 `mulle_vararg_copy( dst, src)`
 
@@ -67,14 +67,14 @@ Copy `mulle_vararg_list` **src** to **dst**. Use this if you want to iterate
 a second time over a `mulle_vararg_list` argument.
 
 
-#### mulle_vararg_end - end varargs
+### `mulle_vararg_end`
 
 `mulle_vararg_end( args)`
 
 Marks the end of the use of **args** `mulle_vararg_list` variable.
 
 
-#### mulle_vararg_next_fp - next floating point value
+### `mulle_vararg_next_fp`
 
 `mulle_vararg_next_fp( args, type)`
 
@@ -88,7 +88,7 @@ mulle_vararg_next_fp( args, float);
 ```
 
 
-#### mulle_vararg_next_integer - next integer value
+### `mulle_vararg_next_integer`
 
 `mulle_vararg_next_integer( args, type)`
 
@@ -102,7 +102,7 @@ mulle_vararg_next_integer( args, unsigned short);
 ```
 
 
-#### mulle_vararg_next_pointer - next pointer value
+### `mulle_vararg_next_pointer`
 
 `mulle_vararg_next_pointer( args, type)`
 
@@ -115,11 +115,11 @@ mulle_vararg_next_pointer( args, int *);
 ```
 
 
-#### mulle_vararg_next_struct - next struct value
+### `mulle_vararg_next_struct`
 
 `mulle_vararg_next_struct( args, type)`
 
-Use it for all struct types.
+Get the next struct value. Use it for all struct types.
 
 Example:
 
@@ -134,10 +134,11 @@ x = mulle_vararg_next_struct( args, struct x_t);
 ```
 
 
-#### _mulle_vararg_next_struct - next address of struct
+### _mulle_vararg_next_struct
 
 `_mulle_vararg_next_struct( args, type)`
 
+Get the address of the next struct.
 Use it for all struct types. The struct will not be copied, but
 instead you get a reference into the varargs. This is obviously more
 risky!
@@ -155,11 +156,11 @@ x = mulle_vararg_next_struct( args, struct x_t);
 ```
 
 
-#### mulle_vararg_next_union - next union value
+### `mulle_vararg_next_union`
 
 `mulle_vararg_next_union( args, type)`
 
-Use it for all union types.
+Get the next union value. Use it for all union types.
 
 Example:
 
@@ -173,7 +174,7 @@ union x_t
 x = mulle_vararg_next_union( args, union x_t);
 ```
 
-#### _mulle_vararg_next_union - get address of next union
+### _mulle_vararg_next_union - get address of next union
 
 `_mulle_vararg_next_union( args, type)`
 
@@ -195,10 +196,11 @@ x = mulle_vararg_next_union( args, struct x_t);
 
 
 
-#### mulle_vararg_start - start varargs
+### mulle_vararg_start
 
 `mulle_vararg_start( args, ap)`
 
+Start the variable argument access.
 **args** is a `mulle_vararg_list` variable. **ap** is the last non-variable
 argument.
 
@@ -206,7 +208,7 @@ argument.
 ## Functions
 
 
-####  mulle_address_align - align an address
+###  mulle_address_align
 
 `uintptr_t   mulle_address_align( uintptr_t p, unsigned int alignment)`
 
@@ -216,7 +218,7 @@ will return the aligned address.
 e.g. `mulle_address_align( 0x11, 0x10)` will return `0x20`
 
 
-####  mulle_pointer_align - align a pointer
+###  mulle_pointer_align
 
 `void   *mulle_pointer_align( void *p, unsigned int alignment)`
 
@@ -224,7 +226,7 @@ Pass in a pointer **p** and an alignment **alignment**. `mulle_align_pointer`
 will return the aligned pointer.
 
 
-####  mulle_vararg_count_pointers - count null terminated vararg pointers
+###  mulle_vararg_count_pointers - count null terminated vararg pointers
 
 `size_t   mulle_vararg_count_pointers( mulle_vararg_list args, void *p)`
 

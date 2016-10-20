@@ -9,6 +9,11 @@ DEPENDENCIES="mulle-c11" # names not camel case
 ORIGIN=public            # git repo to push
 LANGUAGE=c               # c,cpp, objc
 
+##
+## In optimal cases, you don't edit anything hereafter
+##
+MULLE_BOOTSTRAP_FAIL_PREFIX="release.sh"
+
 . ./bin/mulle-homebrew/mulle-homebrew.sh
 
 # parse options

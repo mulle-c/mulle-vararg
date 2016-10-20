@@ -38,3 +38,6 @@ tests/vararg/longlong/pointer_longlong
 tests/vararg/pointer/double_pointer
 tests/vararg/pointer/int_pointer
 tests/vararg/pointer/longlong_pointer
+/tests/mulle-tests/
+*.exe.debug
+*.exe.debug.dSYM

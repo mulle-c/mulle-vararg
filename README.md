@@ -45,6 +45,10 @@ struct
 **mulle-vararg** provides the necessary functions to read such a struct. It has
 no code to create it.
 
+## API
+
+* [API](dox/API_VARARG.md)
+
 
 ## Install
 
@@ -63,15 +67,9 @@ On other platforms you can use **mulle-install** from
 mulle-install --prefix /usr/local --branch release https://www.mulle-kybernetik.com/repositories/mulle-vararg
 ```
 
-
 Otherwise read:
 
 * [How to Build](dox/BUILD.md)
-
-
-## API
-
-* [Vararg](dox/API_VARARG.md)
 
 
 ### Platforms and Compilers
