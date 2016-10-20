@@ -2,7 +2,18 @@
 
 Release on [github](//github.com/mulle-nat/mulle-vararg): [![Build Status](https://travis-ci.org/mulle-nat/mulle-allocator.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-allocator)
 
-A variable argument passing scheme written in C (C11).
+A variable argument passing scheme written in C (C11). It's an alternative
+to [stdarg](//en.wikipedia.org/wiki/Stdarg.h) or [varargs](//pubs.opengroup.org/onlinepubs/7908799/xsh/varargs.h.html), but not compatible with either.
+
+#### Advantages
+
+* possibility of non-compiler construction/deconstruction at runtime. You don't
+need [libffi](//sourceware.org/libffi/) or some such.
+* cheap forwarding to other functions.
+
+#### Disadvantages
+
+* no compiler support
 
 
 ## How it works
@@ -17,9 +28,9 @@ observed though.
 > 2. float to double
 >
 
-Let's assume there is a compiler that does not use `<stdarg.h>` variable
-arguments but **mulle-vararg** instead. It collects all arguments and packs
-them into a struct, then passes this struct to the function.
+Let's assume there is a compiler that uses **mulle-vararg** for variable
+arguments. It collects **all** function parameters and packs them into a struct,
+then passes this struct to the function.
 
 A **printf** function being being called like this:
 
@@ -27,7 +38,7 @@ A **printf** function being being called like this:
 printf( "%d %f %lld\n", (char) 'x', (float) 0.2, 1848LL;
 ```
 
-would access the arguments, as if they were embedded in a struct like this
+would get its arguments embedded in a struct like this
 
 ```
 struct
@@ -44,6 +55,7 @@ struct
 
 **mulle-vararg** provides the necessary functions to read such a struct. It has
 no code to create it.
+
 
 ## API
 
