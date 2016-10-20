@@ -7,13 +7,14 @@ to [stdarg](//en.wikipedia.org/wiki/Stdarg.h) or [varargs](//pubs.opengroup.org/
 
 #### Advantages
 
-* possibility of non-compiler construction/deconstruction at runtime. You don't
-need [libffi](//sourceware.org/libffi/) or some such.
-* cheap forwarding to other functions.
+* Easy to write in C, does not need compiler ABI internals to construct or
+read. You don't need [libffi](//sourceware.org/libffi/) or some such.
+* Cheap forwarding to other functions.
+
 
 #### Disadvantages
 
-* no compiler support
+* No compiler support - so far :)
 
 
 ## How it works
