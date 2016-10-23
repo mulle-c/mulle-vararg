@@ -60,7 +60,7 @@ no code to create it.
 
 ## API
 
-* [API](dox/API_VARARG.md)
+* [Vararg](dox/API_VARARG.md)
 
 
 ## Install
