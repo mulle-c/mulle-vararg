@@ -1,20 +1,24 @@
 #! /bin/sh
+#
+# (c) 2016 Nat! for Mulle kybernetiK
+#
+# BSD3-License
+#
 
-#
-#
-#
 PROJECT="MulleVararg"    # requires camel-case
 DESC="Access variable arguments in struct layout fashion"
-DEPENDENCIES="mulle-c11" # names not camel case
-ORIGIN=public            # git repo to push
+DEPENDENCIES='${REMOTEROOTDIR}/software/mulle-c11' # no camel case, will be evaled later!
 LANGUAGE=c               # c,cpp, objc
 
-##
-## In optimal cases, you don't edit anything hereafter
-##
+#
+# Ideally you don't hafta change anything below this line
+#
+# source mulle-homebrew.sh (clumsily)
 MULLE_BOOTSTRAP_FAIL_PREFIX="release.sh"
 
-. ./bin/mulle-homebrew/mulle-homebrew.sh
+. ./bin/repository-info.sh || exit 1
+. ./bin/mulle-homebrew/mulle-homebrew.sh || exit 1
+
 
 # parse options
 homebrew_parse_options "$@"
@@ -44,8 +48,7 @@ VERSION="`get_header_version "${HEADER}" "${VERSIONNAME}"`"
 # --- HOMEBREW FORMULA ---
 # Information needed to construct a proper brew formula
 #
-HOMEPAGE="https://www.mulle-kybernetik.com/software/git/${NAME}"
-ARCHIVEURL='https://www.mulle-kybernetik.com/software/git/${NAME}/tarball/${VERSION}'  # ARCHIVEURL will be evaled later! keep it in single quotes
+HOMEPAGE="${REMOTEURL}/${NAME}"
 
 
 # --- HOMEBREW TAP ---

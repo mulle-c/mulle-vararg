@@ -1,3 +1,7 @@
+0.5.10
+===
+* fixes for community release
+
 0.5.1-0.5.8
 ===
 
