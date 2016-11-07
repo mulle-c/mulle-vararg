@@ -1,6 +1,6 @@
 # mulle-vararg
 
-Release on [github](//github.com/mulle-nat/mulle-vararg): [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg)
+[![Build Status](https://travis-ci.org/mulle-clang/mulle-vararg.svg)](https://travis-ci.org/mulle-clang/mulle-vararg)
 
 A variable argument passing scheme written in C (C11). It's an alternative
 to [stdarg](//en.wikipedia.org/wiki/Stdarg.h) or [varargs](//pubs.opengroup.org/onlinepubs/7908799/xsh/varargs.h.html), but not compatible with either.
