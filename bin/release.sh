@@ -7,7 +7,7 @@
 
 PROJECT="MulleVararg"    # requires camel-case
 DESC="Access variable arguments in struct layout fashion"
-DEPENDENCIES='${REMOTEROOTDIR}/software/mulle-c11' # no camel case, will be evaled later!
+DEPENDENCIES='${DEPENDENCY_TAP}/mulle-c11' # no camel case, will be evaled later!
 LANGUAGE=c               # c,cpp, objc
 
 #
