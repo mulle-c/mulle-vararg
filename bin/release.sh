@@ -36,6 +36,7 @@ do
    esac
 done
 
+
 #
 # these can usually be deduced, if you follow the conventions
 #
@@ -44,11 +45,7 @@ HEADER="`get_header_from_name "${NAME}"`"
 VERSIONNAME="`get_versionname_from_project "${PROJECT}"`"
 VERSION="`get_header_version "${HEADER}" "${VERSIONNAME}"`"
 
-
-# --- HOMEBREW FORMULA ---
-# Information needed to construct a proper brew formula
-#
-HOMEPAGE="${REMOTEURL}/${NAME}"
+HOMEPAGE="`eval echo "${HOMEPAGE}"`"
 
 
 # --- HOMEBREW TAP ---
