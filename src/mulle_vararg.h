@@ -11,7 +11,10 @@
 
 #include "mulle_align.h"
 
-#define MULLE_VARARG_VERSION  ((0 << 20) | (5 << 8) | 9)
+//
+// community version is always even
+//
+#define MULLE_VARARG_VERSION  ((0 << 20) | (5 << 8) | 11)
 
 
 /*
