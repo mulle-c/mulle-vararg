@@ -5,8 +5,8 @@ to [stdarg](//en.wikipedia.org/wiki/Stdarg.h) or [varargs](//pubs.opengroup.org/
 
 Fork         | Branch  | Version | Build Status 
 -------------|-------- |---------|----------------
-[Mulle kybernetiK](//github.com/mulle-nat/mulle-vararg)  | release | [![GitHub version](https://badge.fury.io/gh/mulle-nat%2Fmulle-vararg.svg)](https://badge.fury.io/gh/mulle-nat%2Fmulle-vararg) | [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg)
-[Community](https://github.com/mulle-objc/mulle-vararg/tree/release)      | release | [![GitHub version](https://badge.fury.io/gh/mulle-objc%2Fmulle-vararg.svg)](https://badge.fury.io/gh/mulle-objc%2Fmulle-vararg) |  [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-objc/mulle-vararg)
+[Mulle kybernetiK](//github.com/mulle-nat/mulle-vararg)  | release | ![GitHub version](https://badge.fury.io/gh/mulle-nat%2Fmulle-vararg.svg) | [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg)
+[Community](https://github.com/mulle-objc/mulle-vararg/tree/release)      | release | ![GitHub version](https://badge.fury.io/gh/mulle-objc%2Fmulle-vararg.svg) |  [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-objc/mulle-vararg)
 [Community](//github.com/mulle-objc/mulle-vararg)    | master | current |  [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=master)](https://travis-ci.org/mulle-objc/mulle-vararg)
 
 
