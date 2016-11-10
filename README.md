@@ -1,13 +1,16 @@
 # mulle-vararg
 
 A variable argument passing scheme written in C (C11). It's an alternative
-to [stdarg](//en.wikipedia.org/wiki/Stdarg.h) or [varargs](//pubs.opengroup.org/onlinepubs/7908799/xsh/varargs.h.html), but not compatible with either.
+to
+[stdarg](//en.wikipedia.org/wiki/Stdarg.h) or
+[varargs](//pubs.opengroup.org/onlinepubs/7908799/xsh/varargs.h.html),
+but not compatible with either.
 
-Fork         | Branch  | Version | Build Status 
--------------|-------- |---------|----------------
-[Mulle kybernetiK](//github.com/mulle-nat/mulle-vararg)  | release | ![GitHub version](https://badge.fury.io/gh/mulle-nat%2Fmulle-vararg.svg) | [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg)
-[Community](https://github.com/mulle-objc/mulle-vararg/tree/release)      | release | ![GitHub version](https://badge.fury.io/gh/mulle-objc%2Fmulle-vararg.svg) |  [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-objc/mulle-vararg)
-[Community](//github.com/mulle-objc/mulle-vararg)    | master | current |  [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=master)](https://travis-ci.org/mulle-objc/mulle-vararg)
+
+Fork      |  Build Status | Release Version
+----------|---------------|-----------------------------------
+[Mulle kybernetiK](//github.com/mulle-nat/mulle-vararg) | [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg) | ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-nat/mulle-vararg.svg) [![Build Status](https://travis-ci.org/mulle-nat/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-nat/mulle-vararg)
+[Community](https://github.com/mulle-objc/mulle-vararg/tree/release) | [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg)](https://travis-ci.org/mulle-objc/mulle-vararg) | ![Community tag](https://img.shields.io/github/tag/mulle-objc/mulle-vararg.svg) [![Build Status](https://travis-ci.org/mulle-objc/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-objc/mulle-vararg)
 
 
 #### Advantages
@@ -65,7 +68,7 @@ no code to create it.
 
 ## API
 
-* [API](dox/API_VARARG.md)
+* [Vararg](dox/API_VARARG.md)
 
 
 ## Install
