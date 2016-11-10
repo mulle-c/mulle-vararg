@@ -19,7 +19,7 @@ read. You don't need [libffi](//sourceware.org/libffi/) or some such.
 
 #### Disadvantages
 
-* Not compatible with ´<stdarg.h>'
+* Not compatible with `<stdarg.h>`
 
 
 ## How it works
