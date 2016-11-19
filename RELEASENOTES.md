@@ -1,9 +1,23 @@
+0.5.13
+===
+
+* merge community release
+
+
+0.5.12
+===
+
+* fix README
+
+
 0.5.11
 ===
+
 * merge fixes for community release
 
 0.5.10
 ===
+
 * fixes for community release
 
 0.5.1-0.5.9
