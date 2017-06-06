@@ -46,3 +46,5 @@ tests/vararg/pointer/double_pointer
 tests/vararg/pointer/int_pointer
 tests/vararg/pointer/longlong_pointer
 /tests/mulle-tests/
+/.bootstrap.repos
+/stashes
