@@ -39,7 +39,6 @@
 
 PROJECT="MulleVararg"    # requires camel-case
 DESC="Access variable arguments in struct layout fashion"
-DEPENDENCIES='${DEPENDENCY_TAP}/mulle-c11' # no camel case, will be evaled later!
 LANGUAGE=c               # c,cpp, objc
 
 
@@ -59,6 +58,7 @@ LANGUAGE=c               # c,cpp, objc
 # DEPENDENCIES='${DEPENDENCY_TAP}mulle-concurrent
 # libpng
 # '
+DEPENDENCIES='${DEPENDENCY_TAP}mulle-c11' # no camel case, will be evaled later!
 
 BUILD_DEPENDENCIES='${BOOTSTRAP_TAP}mulle-bootstrap
 ${BOOTSTRAP_TAP}mulle-build
