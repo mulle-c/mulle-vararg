@@ -5,4 +5,4 @@
 # override the branches like so:
 #    echo "master" > .bootstrap.local/MULLE_C11_BRANCH
 
-${MULLE_REPOSITORIES}/mulle-c11;;${MULLE_C11_BRANCH:-release}
+${MULLE_REPOSITORIES:-https://github.com/mulle-nat}/mulle-c11;;${MULLE_C11_BRANCH:-release}

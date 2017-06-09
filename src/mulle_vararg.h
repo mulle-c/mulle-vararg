@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((0 << 20) | (5 << 8) | 14)
+#define MULLE_VARARG_VERSION  ((0 << 20) | (5 << 8) | 15)
 
 
 /*
@@ -139,6 +139,29 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
    (sizeof( type) < sizeof( double)                                                                                 \
       ? (type) *(double *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })) \
       : *(type *) _mulle_vararg_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })))
+
+
+// untested code!
+static inline char  *_mulle_vararg_long_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+{
+   char   *q;
+
+   if( size < sizeof( long double))
+   {
+      size  = sizeof( long double);
+      align = alignof( struct{ long double x; });  // weirdness for i386
+   }
+
+   q       = mulle_pointer_align( args->p, align);
+   args->p = &q[ size];
+   return( q);
+}
+
+
+#define mulle_vararg_next_long_double( args, type)                                                                           \
+   (sizeof( type) < sizeof( long double)                                                                                 \
+      ? (type) *(long double *) _mulle_vararg_long_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })) \
+      : *(type *) _mulle_vararg_long_double_aligned_pointer( &args, sizeof( type), alignof( struct{ type x; })))
 
 
 #define mulle_vararg_copy( dst, src)  \
