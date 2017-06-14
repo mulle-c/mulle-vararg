@@ -4,6 +4,7 @@
 .repos/
 project.xcworkspace/
 *.old
+*.bak
 *.exe
 *.exe.debug
 *.exe.debug.dSYM
@@ -48,3 +49,4 @@ tests/vararg/pointer/longlong_pointer
 /tests/mulle-tests/
 /.bootstrap.repos
 /stashes
+bin/tap-info.sh
