@@ -1,0 +1,9 @@
+
+set(HEADERS
+src/mulle_align.h
+src/mulle_vararg.h
+)
+
+set( SOURCES
+src/mulle_vararg.c
+)
