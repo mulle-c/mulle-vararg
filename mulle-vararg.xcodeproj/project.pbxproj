@@ -121,7 +121,7 @@
 				41998A401CB6693400D18DD8 /* generate-dot.sh */,
 				41998A411CB6693400D18DD8 /* update-all-configurations.sh */,
 			);
-			path = "mulle-configuration";
+			path = "mulle-configuration/xcode";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

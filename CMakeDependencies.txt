@@ -1,0 +1,9 @@
+if( NOT __MULLE_VARARG_CMAKE_DEPENDENCIES_TXT__)
+   set( __MULLE_VARARG_CMAKE_DEPENDENCIES_TXT__ ON)
+
+   message( STATUS "# Include mulle-vararg CMakeDependencies.txt")
+
+   # just here for orthogonality to other libraries
+endif()
+
+

@@ -1,3 +1,7 @@
+### 0.5.21
+
+* refinements for mulle-configuration 3.1
+
 ### 0.5.19
 
 * modernized to mulle-configuration 3.0
