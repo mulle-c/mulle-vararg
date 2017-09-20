@@ -41,4 +41,6 @@ include( Standalone)
 INSTALL( TARGETS mulle_vararg mulle_vararg_standalone DESTINATION "lib")
 INSTALL( FILES ${PUBLIC_HEADERS} DESTINATION "include/mulle_vararg")
 
+include( MulleTest)
+
 
