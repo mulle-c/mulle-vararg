@@ -7,3 +7,8 @@ src/mulle_vararg.h
 set( SOURCES
 src/mulle_vararg.c
 )
+
+
+set( STANDALONE_SOURCES
+src/mulle_vararg_standalone.c
+)

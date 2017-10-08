@@ -15,6 +15,7 @@ endif()
 include( CMakeSourcesAndHeaders.txt)
 include( CMakeDependencies.txt)
 
+include_directories( ${INCLUDE_DIRS})
 
 set( PUBLIC_HEADERS
 ${HEADERS}
