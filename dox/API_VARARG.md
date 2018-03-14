@@ -11,7 +11,7 @@ in stdarg you specify the type as a parameter to `va_next`, whereas in
 ## How to use it
 
 Link against `mulle_vararg` and
-`#include <mulle_vararg/mulle_vararg.h>` in your code.
+`#include <mulle-vararg/mulle-vararg.h>` in your code.
 
 Here is an example. A structure is defined with two fields, **a** and **b**.
 `mulle_vararg_start` is initialized with **a**. It will now use the
@@ -20,7 +20,7 @@ first value *AFTER* **a** as the first variable argument.
 So this code will effectively output `18`.
 
 ```
-#include <mulle_vararg/mulle_vararg.h>
+#include <mulle-vararg/mulle-vararg.h>
 #include <stdio.h>
 
 
@@ -238,7 +238,7 @@ compute the number of non-NULL pointers including *p**.
 Example:
 
 ```
-#include <mulle_vararg/mulle_vararg.h>
+#include <mulle-vararg/mulle-vararg.h>
 #include <stdio.h>
 
 

@@ -2,46 +2,104 @@ cmake_minimum_required( VERSION 3.0)
 
 project( mulle-vararg C)
 
-set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/mulle-configuration/cmake)
-message(STATUS "CMAKE_MODULE_PATH is ${CMAKE_MODULE_PATH}")
-message(STATUS "CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}")
-if( "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-  include( Debug)
-else()
-  include( Release)
-endif()
+
+### mulle-sde environment
+
+# add cmake module paths to search path
+list( INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake/share")
+list( INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake")
+
+include( Environment)
 
 
-include( CMakeSourcesAndHeaders.txt)
-include( CMakeDependencies.txt)
+### Files
+
+include( PreFiles OPTIONAL)
+
+set( MULLE_VARARG_LIBRARY ON)
+
+#
+# Include all non underscored .cmake files in ./cmake
+#
+file( GLOB LOCAL_CMAKE_INCLUDES
+   "cmake/[A-Za-z0-9]*.cmake"
+)
+
+foreach( FILE ${LOCAL_CMAKE_INCLUDES} )
+   include( "${FILE}")
+endforeach()
+
 
 include_directories( ${INCLUDE_DIRS})
 
-set( PUBLIC_HEADERS
-${HEADERS}
-CMakeDependencies.txt
-)
+include( PostFiles OPTIONAL)
 
+### Library
 
-add_library( mulle_vararg
+include( PreLibrary OPTIONAL)
+
+add_library( "mulle-vararg"
+# definitions from cmake/HeadersAndSources.cmake
 ${SOURCES}
-${HEADERS}
+${PUBLIC_HEADERS}
+${PRIVATE_HEADERS}
+# definitions from cmake/share/Environment.cmake
+${CMAKE_EDITABLE_FILES}
 )
 
 
-set( STANDALONE_BASE_NAME "mulle_vararg")
-set( STANDALONE_NAME "mulle_vararg_standalone")
-set( STANDALONE_DEFINITIONS ${MULLE_VARARG_DEFINITIONS})
-set( STANDALONE_ALL_LOAD_LIBRARIES
-$<TARGET_FILE:mulle_vararg>
+
+if( BUILD_SHARED_LIBS)
+   target_link_libraries( mulle-vararg
+# definitions from cmake/share/DependenciesAndLibraries.cmake
 ${DEPENDENCY_LIBRARIES}
+${OS_SPECIFIC_LIBRARIES}
+)
+endif()
+
+include( PostLibrary OPTIONAL)
+
+option( STANDALONE "Create standalone library for debugging" OFF)
+
+set( INSTALL_LIBRARY_TARGETS
+"mulle-vararg"
 )
 
-include( Standalone)
+if( STANDALONE)
+   set( STANDALONE_BASE_NAME "mulle-vararg")
+   set( STANDALONE_NAME "mulle-vararg-standalone")
+   set( STANDALONE_DEFINITIONS ${MULLE_VARARG_DEFINITIONS})
+   set( STANDALONE_DEPENDENCIES
+   mulle-vararg
+   )
 
-INSTALL( TARGETS mulle_vararg mulle_vararg_standalone DESTINATION "lib")
-INSTALL( FILES ${PUBLIC_HEADERS} DESTINATION "include/mulle_vararg")
+   set( STANDALONE_ALL_LOAD_LIBRARIES
+   $<TARGET_FILE:mulle-vararg>
+   ${DEPENDENCY_LIBRARIES}
+   ${OPTIONAL_DEPENDENCY_LIBRARIES}
+   ${OS_SPECIFIC_LIBRARIES}
+   )
 
-include( MulleTest)
+   include( Standalone)
 
+   set( INSTALL_LIBRARY_TARGETS
+   ${INSTALL_LIBRARY_TARGETS}
+   "mulle-vararg-standalone"
+   )
+endif()
 
+### Install
+
+include( PreInstall OPTIONAL)
+
+install( TARGETS ${INSTALL_LIBRARY_TARGETS} DESTINATION "lib")
+install( FILES ${PUBLIC_HEADERS}  DESTINATION "include/mulle-vararg")
+install( FILES ${PRIVATE_HEADERS} DESTINATION "include/mulle-vararg/private")
+
+# definitions from cmake/share/Environment.cmake
+install( FILES ${CMAKE_INCLUDES}  DESTINATION "include/mulle-vararg/cmake")
+
+# definitions from cmake/share/LinkManifest.cmake
+install( FILES ${LINK_MANIFEST_FILES}  DESTINATION "include/mulle-vararg/link")
+
+include( PostInstall OPTIONAL)

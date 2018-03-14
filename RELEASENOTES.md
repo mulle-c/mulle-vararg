@@ -1,3 +1,8 @@
+## 0.6.0
+
+* migrated to mulle-sde
+* renamed headers to hyphenated version
+
 ### 0.5.27
 
 * Various small improvements
