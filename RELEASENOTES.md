@@ -1,7 +1,8 @@
-## 0.6.0
+# 1.0.0
 
 * migrated to mulle-sde
 * renamed headers to hyphenated version
+* no longer available as a homebrew package
 
 ### 0.5.27
 
