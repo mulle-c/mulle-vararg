@@ -1,6 +1,6 @@
 ### 1.0.3
 
-* Various small improvements
+* fix environment.sh
 
 ### 1.0.2
 
