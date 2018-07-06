@@ -9,7 +9,7 @@
 #ifndef mulle_align_h__
 #define mulle_align_h__
 
-#include "dependencies.h"
+#include "include.h"
 #include <stdint.h>
 #include <stddef.h>
 

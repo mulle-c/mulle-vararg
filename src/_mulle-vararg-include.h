@@ -3,8 +3,8 @@
    Edits will be lost.
 */
 
-#ifndef _mulle_vararg__dependencies_h__
-#define _mulle_vararg__dependencies_h__
+#ifndef _mulle_vararg_include_h__
+#define _mulle_vararg_include_h__
 
 # include <mulle-c11/mulle-c11.h>   // mulle-c11
 

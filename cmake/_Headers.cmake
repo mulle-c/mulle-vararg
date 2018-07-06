@@ -8,8 +8,13 @@ set( INCLUDE_DIRS
 src
 ) 
 
+set( PRIVATE_HEADERS
+src/include-private.h
+)
+
 set( PUBLIC_HEADERS
-src/dependencies.h
+src/_dependencies.h
+src/include.h
 src/mulle-align.h
 src/mulle-vararg.h
 ) 
