@@ -91,7 +91,13 @@ add_library( "mulle-vararg"
 )
 
 
-set( INSTALL_LIBRARY_TARGETS "mulle-vararg")
+
+include( Library OPTIONAL)
+
+set( INSTALL_LIBRARY_TARGETS
+   "mulle-vararg"
+   "${INSTALL_LIBRARY_TARGETS}"
+)
 
 include( PostLibrary OPTIONAL)
 
