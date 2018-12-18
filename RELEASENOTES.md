@@ -1,3 +1,7 @@
+### 1.0.8
+
+* add missing file
+
 ### 1.0.7
 
 * upgrade to newest mulle-sde
