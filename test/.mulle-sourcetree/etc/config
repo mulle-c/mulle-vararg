@@ -1,0 +1,2 @@
+mulle-vararg;tar;no-all-load,no-import,only-standalone;77CDF113-2FAF-413C-9728-1E2B37A85EC5;${MULLE_VARARG_URL:-https://github.com/mulle-c/mulle-vararg/archive/${MULLE_VARARG_BRANCH:-latest}.tar.gz};;;;
+mulle-testallocator;tar;no-all-load,no-import;BAC00DC2-8317-4FE5-AEDB-FD6D4FA5147D;${MULLE_TESTALLOCATOR_URL:-https://github.com/mulle-core/mulle-testallocator/archive/${MULLE_TESTALLOCATOR_BRANCH:-latest}.tar.gz};;;;

@@ -1,3 +1,7 @@
+### 1.0.7
+
+* upgrade to newest mulle-sde
+
 ### 1.0.6
 
 * remove obsolete file

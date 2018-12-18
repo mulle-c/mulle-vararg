@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (0 << 8) | 6)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (0 << 8) | 7)
 
 
 /*
@@ -66,7 +66,9 @@ while( 0)
 
 
 // use this for integer types
-static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
+                                                        size_t size,
+                                                        unsigned int align)
 {
    char   *q;
 
@@ -118,7 +120,9 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
    (*_mulle_vararg_next_union( args, type))
 
 
-static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args,
+                                                           size_t size,
+                                                           unsigned int align)
 {
    char   *q;
 
@@ -142,7 +146,9 @@ static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *ar
 
 
 // untested code!
-static inline char  *_mulle_vararg_long_double_aligned_pointer( mulle_vararg_list *args, size_t size, unsigned int align)
+static inline char  *_mulle_vararg_long_double_aligned_pointer( mulle_vararg_list *args,
+                                                                size_t size,
+                                                                unsigned int align)
 {
    char   *q;
 
@@ -176,7 +182,8 @@ while( 0)
 
 // only works with pointers
 
-static inline size_t   mulle_vararg_count_pointers( mulle_vararg_list args, void *first)
+static inline size_t   mulle_vararg_count_pointers( mulle_vararg_list args,
+                                                    void *first)
 {
    size_t   count;
    void     *p;
