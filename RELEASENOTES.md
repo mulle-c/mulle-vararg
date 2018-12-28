@@ -1,3 +1,7 @@
+### 1.0.10
+
+* fix badges
+
 ### 1.0.9
 
 * improve README
