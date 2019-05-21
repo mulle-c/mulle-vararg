@@ -1,3 +1,7 @@
+### 1.0.12
+
+* modernized mulle-sde
+
 ### 1.0.11
 
 * modernized to mulle-sde with .mulle folder

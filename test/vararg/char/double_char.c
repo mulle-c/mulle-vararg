@@ -13,7 +13,7 @@ struct
 };
 
 
-int   main( voids)
+int   main( void)
 {
    mulle_vararg_list   list;
 
