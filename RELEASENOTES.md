@@ -1,3 +1,7 @@
+### 1.0.13
+
+* Various small improvements
+
 ### 1.0.12
 
 * modernized mulle-sde
