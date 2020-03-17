@@ -1,3 +1,7 @@
+### 1.0.15
+
+* newer and better travis-ci
+
 ### 1.0.14
 
 * late mulle-sde upgrade
