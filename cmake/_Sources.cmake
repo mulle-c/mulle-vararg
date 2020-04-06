@@ -7,5 +7,8 @@ endif()
 
 set( SOURCES
 src/mulle-vararg.c
+)
+
+set( STANDALONE_SOURCES
 src/mulle-vararg-standalone.c
 )
