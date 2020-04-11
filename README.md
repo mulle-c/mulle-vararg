@@ -22,13 +22,15 @@ Install the prerequisites first:
 | [mulle-c11](//github.com/mulle-c/mulle-c11)             |
 
 
-Then build and install
+Install into /usr/local:
 
 ```
 mkdir build 2> /dev/null
 (
    cd build ;
-   cmake .. ;
+   cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
+         -DCMAKE_PREFIX_PATH=/usr/local \
+         -DCMAKE_BUILD_TYPE=Release .. ;
    make install
 )
 ```
