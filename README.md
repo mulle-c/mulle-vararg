@@ -101,6 +101,50 @@ read. You don't need [libffi](//sourceware.org/libffi/) or some such.
 All platforms and compilers supported by
 [mulle-c11](//github.com/mulle-c/mulle-c11)
 
+
+## Add 
+
+Use [mulle-sde](//github.com/mulle-sde) to add mulle-vararg to your project:
+
+```
+mulle-sde dependency add --c --github mulle-c mulle-vararg
+```
+
+## Install
+
+### mulle-sde
+
+Use [mulle-sde](//github.com/mulle-sde) to build and install mulle-vararg and all dependencies:
+
+```
+mulle-sde install --prefix /usr/local \
+   https://github.com/mulle-c/mulle-vararg/archive/latest.tar.gz
+```
+
+### Manual Installation
+
+
+Install the requirements:
+
+Requirements                                 | Description
+---------------------------------------------|-----------------------
+[mulle-c11](//github.com/mulle-c/mulle-c11)  | Compiler glue
+
+
+Install into `/usr/local`:
+
+```
+mkdir build 2> /dev/null
+(
+   cd build ;
+   cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
+         -DCMAKE_PREFIX_PATH=/usr/local \
+         -DCMAKE_BUILD_TYPE=Release .. ;
+   make install
+)
+```
+
+
 ## Author
 
 [Nat!](//www.mulle-kybernetik.com/weblog) for
