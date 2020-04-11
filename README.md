@@ -13,30 +13,6 @@ Build Status | Release Version
 -------------|-----------------------------------
 [![Build Status](https://travis-ci.org/mulle-c/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-c/mulle-vararg) | ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-vararg.svg) [![Build Status](https://travis-ci.org/mulle-c/mulle-vararg.svg?branch=release)](https://travis-ci.org/mulle-c/mulle-vararg)
 
-## Install
-
-Install the prerequisites first:
-
-| Prerequisites                                           |
-|---------------------------------------------------------|
-| [mulle-c11](//github.com/mulle-c/mulle-c11)             |
-
-
-Install into /usr/local:
-
-```
-mkdir build 2> /dev/null
-(
-   cd build ;
-   cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
-         -DCMAKE_PREFIX_PATH=/usr/local \
-         -DCMAKE_BUILD_TYPE=Release .. ;
-   make install
-)
-```
-
-Or let [mulle-sde](//github.com/mulle-sde) do it all for you.
-
 
 ## How it works
 
