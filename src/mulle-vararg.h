@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (0 << 8) | 16)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 16)
 
 
 /*
@@ -55,13 +55,21 @@ typedef struct
 }  mulle_vararg_list;
 
 
+// this is rarely used!!
+static inline mulle_vararg_list   mulle_vararg_list_make( void *buf)
+{
+   mulle_vararg_list  list;
 
-#define mulle_vararg_start( args, ap)          \
-do                                             \
-{                                              \
-   args.p = &ap;                               \
-   args.p = &((char *) args.p)[ sizeof( ap) < sizeof( int) ? sizeof( int) : sizeof( ap)];  \
-}                                              \
+   list.p = buf;
+   return( list);
+}
+
+
+#define mulle_vararg_start( args, ap)                                                  \
+do                                                                                     \
+{                                                                                      \
+   args.p = &((char *) &ap)[ sizeof( ap) < sizeof( int) ? sizeof( int) : sizeof( ap)]; \
+}                                                                                      \
 while( 0)
 
 
@@ -120,18 +128,25 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
    (*_mulle_vararg_next_union( args, type))
 
 
+#define _mulle_fp_correct_type_size( size)         \
+   (size < sizeof( double)                         \
+         ? sizeof( double)                         \
+         : size)
+
+// weirdness for i386
+#define _mulle_fp_correct_type_align( size, align)   \
+   (size < sizeof( double)                           \
+         ? alignof( struct{ double x; })             \
+         : align)
+
 static inline char  *_mulle_vararg_double_aligned_pointer( mulle_vararg_list *args,
                                                            size_t size,
                                                            unsigned int align)
 {
    char   *q;
 
-   if( size < sizeof( double))
-   {
-      size  = sizeof( double);
-      align = alignof( struct{ double x; });  // weirdness for i386
-   }
-
+   align   = _mulle_fp_correct_type_align( size, align);
+   size    = _mulle_fp_correct_type_size( size);
    q       = mulle_pointer_align( args->p, align);
    args->p = &q[ size];
    return( q);
@@ -199,5 +214,63 @@ static inline size_t   mulle_vararg_count_pointers( mulle_vararg_list args,
    return( count);
 }
 
+/*
+ * conveniences
+ */
+#define mulle_vararg_next_char( ap)  \
+   mulle_vararg_next_integer( ap, char)
+
+#define mulle_vararg_next_short( ap)  \
+   mulle_vararg_next_integer( ap, short)
+
+#define mulle_vararg_next_int( ap)  \
+   mulle_vararg_next_integer( ap, int)
+
+#define mulle_vararg_next_int32( ap)  \
+   mulle_vararg_next_integer( ap, int32_t)
+
+#define mulle_vararg_next_int64( ap)  \
+   mulle_vararg_next_integer( ap, int64_t)
+
+#define mulle_vararg_next_long( ap)  \
+   mulle_vararg_next_integer( ap, long)
+
+#define mulle_vararg_next_longlong( ap)  \
+   mulle_vararg_next_integer( ap, long long)
+
+
+#define mulle_vararg_next_unsignedchar( ap) \
+   mulle_vararg_next_integer( ap, unsigned char)
+
+#define mulle_vararg_next_unsignedshort( ap) \
+   mulle_vararg_next_integer( ap, unsigned short)
+
+#define mulle_vararg_next_unsignedint( ap) \
+   mulle_vararg_next_integer( ap, unsigned int)
+
+#define mulle_vararg_next_uint32( ap)  \
+   mulle_vararg_next_integer( ap, uint32_t)
+
+#define mulle_vararg_next_uint64( ap)  \
+   mulle_vararg_next_integer( ap, uint64_t)
+
+#define mulle_vararg_next_unsignedlong( ap) \
+   mulle_vararg_next_integer( ap, unsigned long)
+
+#define mulle_vararg_next_unsignedlonglong( ap) \
+   mulle_vararg_next_integer( ap, unsigned long long)
+
+
+#define mulle_vararg_next_float( ap) \
+   mulle_vararg_next_fp( ap, float)
+
+#define mulle_vararg_next_double( ap) \
+   mulle_vararg_next_fp( ap, double)
+
+#define mulle_vararg_next_longdouble( ap) \
+   mulle_vararg_next_fp( ap, long double)
+
+
+#include "mulle-vararg-builder.h"
 
 #endif /* mulle_vararg_h */
