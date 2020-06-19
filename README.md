@@ -55,6 +55,7 @@ struct
 no code to create it.
 
 
+
 #### Advantages
 
 * Easy to write in C, does not need compiler ABI internals to construct or
@@ -70,7 +71,11 @@ read. You don't need [libffi](//sourceware.org/libffi/) or some such.
 
 ## API
 
+There is an API to access mulle-vararg arguments. You can also build up
+a mulle-vararg manually with the builder functions.
+
 * [Vararg](dox/API_VARARG.md)
+* [VarargBuilder](dox/API_VARARG_BUILDER.md)
 
 ### Platforms and Compilers
 
@@ -78,7 +83,7 @@ All platforms and compilers supported by
 [mulle-c11](//github.com/mulle-c/mulle-c11)
 
 
-## Add 
+## Add
 
 Use [mulle-sde](//github.com/mulle-sde) to add mulle-vararg to your project:
 

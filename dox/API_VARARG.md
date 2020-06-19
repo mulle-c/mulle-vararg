@@ -134,7 +134,7 @@ x = mulle_vararg_next_struct( args, struct x_t);
 ```
 
 
-### _mulle_vararg_next_struct
+### `_mulle_vararg_next_struct`
 
 `_mulle_vararg_next_struct( args, type)`
 
@@ -174,7 +174,7 @@ union x_t
 x = mulle_vararg_next_union( args, union x_t);
 ```
 
-### _mulle_vararg_next_union - get address of next union
+### `_mulle_vararg_next_union` - get address of next union
 
 `_mulle_vararg_next_union( args, type)`
 
@@ -196,7 +196,7 @@ x = mulle_vararg_next_union( args, struct x_t);
 
 
 
-### mulle_vararg_start
+### `mulle_vararg_start`
 
 `mulle_vararg_start( args, ap)`
 
@@ -208,7 +208,7 @@ argument.
 ## Functions
 
 
-###  mulle_address_align
+###  `mulle_address_align`
 
 `uintptr_t   mulle_address_align( uintptr_t p, unsigned int alignment)`
 
@@ -218,7 +218,7 @@ will return the aligned address.
 e.g. `mulle_address_align( 0x11, 0x10)` will return `0x20`
 
 
-###  mulle_pointer_align
+###  `mulle_pointer_align`
 
 `void   *mulle_pointer_align( void *p, unsigned int alignment)`
 
@@ -226,14 +226,14 @@ Pass in a pointer **p** and an alignment **alignment**. `mulle_align_pointer`
 will return the aligned pointer.
 
 
-###  mulle_vararg_count_pointers - count null terminated vararg pointers
+###  `mulle_vararg_count_pointers` - count null terminated vararg pointers
 
 `size_t   mulle_vararg_count_pointers( mulle_vararg_list args, void *p)`
 
 The interface is a bit weird but practical. You give it a variable argument
 list and the first pointer of that list of pointers. The function assumes that
 all subsequent variable arguments are also of pointer type. It will then
-compute the number of non-NULL pointers including *p**.
+compute the number of non-NULL pointers including `*p`.
 
 Example:
 
