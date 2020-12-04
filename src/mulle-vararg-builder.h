@@ -86,7 +86,6 @@ while( 0)
 #define mulle_vararg_push_union( ap, value)                            \
    mulle_vararg_push_struct( p, value)
 
-#endif
 
 #define mulle_vararg_push_char( ap, value)  \
    mulle_vararg_push_integer( ap, char, value)
@@ -142,3 +141,4 @@ while( 0)
 #define mulle_vararg_push_longdouble( ap, value) \
    mulle_vararg_push_fp( ap, long double, value)
 
+#endif

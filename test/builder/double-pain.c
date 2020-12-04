@@ -1,5 +1,4 @@
 #include <mulle-vararg/mulle-vararg.h>
-#include <mulle-vararg/mulle-vararg.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -24,7 +23,7 @@ int   main( void)
    mulle_vararg_list             q;
    struct reference              ref;
 
-   list = mulle_vararg_make_builderbuffer( buf);
+   list = mulle_vararg_list_make( buf);
 
    memset( buf, 0, sizeof( buf));
    memset( &ref, 0, sizeof( ref));
