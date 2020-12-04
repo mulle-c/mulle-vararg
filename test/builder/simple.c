@@ -9,7 +9,7 @@ int   main( void)
    mulle_vararg_list             list;
    mulle_vararg_list             q;
 
-   list = mulle_vararg_make_builderbuffer( buf);
+   list = mulle_vararg_list_make( buf);
 
    mulle_vararg_copy( q, list);
    mulle_vararg_push_int( q, 18);
