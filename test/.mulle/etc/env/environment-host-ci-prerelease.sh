@@ -161,3 +161,21 @@ export MULLE_VARARG_URL="https://github.com/mulle-c/mulle-vararg.git"
 export MULLE_VARARG_BRANCH="prerelease"
 
 
+#
+#
+#
+export MULLE_DATA_NODETYPE="git"
+
+
+#
+#
+#
+export MULLE_DATA_URL="https://github.com/mulle-c/mulle-data.git"
+
+
+#
+#
+#
+export MULLE_DATA_BRANCH="prerelease"
+
+
