@@ -1,3 +1,10 @@
+## 1.1.0
+
+* updated project for github actions etc.
+* rename `mulle_vararg_make_builderbuffer` to `mulle_vararg_list_make`
+* add builder functionality for varargs
+
+
 ### 1.0.16
 
 * new mulle-sde project structure
