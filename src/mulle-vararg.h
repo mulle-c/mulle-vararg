@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 16)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 0)
 
 
 /*
