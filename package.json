@@ -1,0 +1,16 @@
+{
+   "name" : "mulle-vararg",
+   "version" : "1.1.0",
+   "description" : " ⏪ Access variable arguments in struct layout fashion in C",
+   "homepage" : "https://github.com/mulle-c/mulle-vararg",
+   "bugs" : "https://github.com/mulle-c/mulle-vararg/issues",
+   "keywords" : [],
+   "license" : "BSD-3-Clause",
+   "repository" : {
+      "type" : "git",
+      "url" : "mulle-c/mulle-vararg"
+   },
+   "dependencies" : {
+      "mulle-c11" : "mulle-c/mulle-c11"
+   }
+}

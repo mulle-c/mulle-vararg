@@ -52,7 +52,7 @@ struct
 ```
 
 **mulle-vararg** provides the necessary functions to read such a struct. It has
-no code to create it.
+some experimental code to write to it.
 
 
 
