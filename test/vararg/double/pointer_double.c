@@ -8,7 +8,7 @@ struct
    double  b;
 } value =
 {
-   -1848,
+   (void *) -1848,
    18.48
 };
 

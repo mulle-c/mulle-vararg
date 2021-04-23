@@ -37,18 +37,18 @@ export PROJECT_EXTENSIONS="c"
 #
 #
 #
-export PROJECT_IDENTIFIER="mulle_vararg"
 
-
-#
-#
-#
-export PROJECT_DOWNCASE_IDENTIFIER="mulle_vararg"
 
 
 #
 #
 #
-export PROJECT_UPCASE_IDENTIFIER="MULLE_VARARG"
+
+
+
+#
+#
+#
+
 
 
