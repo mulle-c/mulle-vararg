@@ -8,7 +8,7 @@ struct
    long long   b;
 } value =
 {
-   -1848,
+   (void *) -1848,
    1848
 };
 
