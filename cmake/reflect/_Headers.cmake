@@ -31,13 +31,6 @@ src/include-private.h
 )
 
 #
-# contents selected with patternfile ??-header--private-headers
-#
-set( PRIVATE_HEADERS
-src/_mulle-vararg-include-private.h
-)
-
-#
 # contents selected with patternfile ??-header--public-generated-headers
 #
 set( PUBLIC_GENERATED_HEADERS
@@ -60,6 +53,5 @@ src/_dependencies.h
 src/mulle-align.h
 src/mulle-vararg-builder.h
 src/mulle-vararg.h
-src/_mulle-vararg-include.h
 )
 
