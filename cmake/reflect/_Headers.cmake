@@ -35,6 +35,7 @@ src/include-private.h
 set( PUBLIC_GENERATED_HEADERS
 src/reflect/_mulle-vararg-include.h
 src/reflect/_mulle-vararg-provide.h
+src/reflect/_mulle-vararg-versioncheck.h
 )
 
 #

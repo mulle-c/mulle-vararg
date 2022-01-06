@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 1)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 2)
 
 
 /*
@@ -272,5 +272,12 @@ static inline size_t   mulle_vararg_count_pointers( mulle_vararg_list args,
 
 
 #include "mulle-vararg-builder.h"
+
+
+#ifdef __has_include
+# if __has_include( "_mulle-vararg-versioncheck.h")
+#  include "_mulle-vararg-versioncheck.h"
+# endif
+#endif
 
 #endif /* mulle_vararg_h */

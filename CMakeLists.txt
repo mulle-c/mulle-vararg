@@ -2,6 +2,9 @@ cmake_minimum_required( VERSION 3.1)
 
 project( mulle-vararg C)
 
+add_definitions( -DMULLE_VARARG_EXTERN_GLOBAL=extern)
+
+
 
 ### mulle-sde environment
 
