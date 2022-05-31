@@ -6,7 +6,7 @@
 Link against `mulle_vararg` and
 `#include <mulle-vararg/mulle-vararg.h>` in your code.
 
-Here is an example. You want to pass an int and a float to a variable
+Here is an example. You want to pass an `int` value and a `long` value to a variable
 argument functions such as `mulle_sprintf`.
 
 The critical part here is the proper estimation of the required size of
