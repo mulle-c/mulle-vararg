@@ -20,8 +20,14 @@
  */
 
 #include "_mulle-vararg-include.h"
-#ifndef MULLE_VARARG_EXTERN_GLOBAL
-# define MULLE_VARARG_EXTERN_GLOBAL MULLE_C_EXTERN_GLOBAL
+#ifdef MULLE_VARARG_BUILD
+# define MULLE_VARARG_GLOBAL    MULLE_C_GLOBAL
+#else
+# if defined( MULLE_VARARG_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE_VARARG_INCLUDE_STATIC))
+#  define MULLE_VARARG_GLOBAL   MULLE_C_EXTERN_GLOBAL
+# else
+#  define MULLE_VARARG_GLOBAL   extern
+# endif
 #endif
 
 

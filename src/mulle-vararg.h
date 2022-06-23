@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 2)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 3)
 
 
 /*
@@ -83,7 +83,7 @@ static inline char  *_mulle_vararg_int_aligned_pointer( mulle_vararg_list *args,
    if( size < sizeof( int))
    {
       size  = sizeof( int);
-      align = alignof( struct{ int x; });  // weirdness for i386
+      align = alignof( struct{ int x; });  // weirdness for i386 gives warning C4116, just suppress
    }
 
    q       = mulle_pointer_align( args->p, align);
