@@ -11,7 +11,7 @@ but not compatible with either.
 
 | Release Version
 |-----------------------------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](https://github.com/mulle-c/mulle-vararg/actions)
+| ![Mulle kybernetiK tag](//img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](//github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-vararg/actions)
 
 
 ## How it works
@@ -106,7 +106,7 @@ Use [mulle-sde](//github.com/mulle-sde) to build and install mulle-vararg and al
 
 ```
 mulle-sde install --prefix /usr/local \
-   https://github.com/mulle-c/mulle-vararg/archive/latest.tar.gz
+   //github.com/mulle-c/mulle-vararg/archive/latest.tar.gz
 ```
 
 ### Manual Installation
