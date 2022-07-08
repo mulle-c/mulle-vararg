@@ -11,7 +11,7 @@ but not compatible with either.
 
 | Release Version
 |-----------------------------------
-| ![Mulle kybernetiK tag](//img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](//github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-vararg/actions)
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-vararg/actions)
 
 
 ## How it works
