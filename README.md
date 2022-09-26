@@ -32,13 +32,13 @@ then passes this struct to the function.
 
 A **printf** function being being called like this:
 
-```
+``` c
 printf( "%d %f %lld\n", (char) 'x', (float) 0.2, 1848LL;
 ```
 
 would get its arguments embedded in a struct like this
 
-```
+``` c
 struct
 {
    char    *format;
@@ -89,7 +89,7 @@ a mulle-vararg manually with the builder functions.
 
 Use [mulle-sde](//github.com/mulle-sde) to add mulle-buffer to your project:
 
-```
+``` sh
 mulle-sde dependency add --c --github mulle-c mulle-buffer
 ```
 
@@ -104,9 +104,9 @@ how to add mulle-c source code into your own projects.
 
 Use [mulle-sde](//github.com/mulle-sde) to build and install mulle-vararg and all dependencies:
 
-```
+``` sh
 mulle-sde install --prefix /usr/local \
-   //github.com/mulle-c/mulle-vararg/archive/latest.tar.gz
+   https://github.com/mulle-c/mulle-vararg/archive/latest.tar.gz
 ```
 
 ### Manual Installation
@@ -121,15 +121,13 @@ Requirements                                 | Description
 
 Install into `/usr/local`:
 
-```
-mkdir build 2> /dev/null
-(
-   cd build ;
-   cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
-         -DCMAKE_PREFIX_PATH=/usr/local \
-         -DCMAKE_BUILD_TYPE=Release .. ;
-   make install
-)
+``` sh
+cmake -B build \
+      -DCMAKE_INSTALL_PREFIX=/usr/local \
+      -DCMAKE_PREFIX_PATH=/usr/local \
+      -DCMAKE_BUILD_TYPE=Release &&
+cmake --build build --config Release &&
+cmake --install build --config Release
 ```
 
 
