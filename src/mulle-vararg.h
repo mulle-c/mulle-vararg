@@ -14,7 +14,7 @@
 //
 // community version is always even
 //
-#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 3)
+#define MULLE_VARARG_VERSION  ((1 << 20) | (1 << 8) | 4)
 
 
 /*
@@ -113,16 +113,33 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
    (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
 
 
+static inline void  *_mulle_vararg_aligned_struct( mulle_vararg_list *args,
+                                                   size_t size,
+                                                   unsigned int align)
+{
+   char   *q;
+
+   q       = mulle_pointer_align( args->p, align);
+   args->p = &q[ size];
+   return( q);
+}
+
+
 // use this for all struct types
-#define _mulle_vararg_next_struct( args, type)  \
-   ((type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+#define _mulle_vararg_next_struct( args, type)                              \
+   ((type *) _mulle_vararg_aligned_struct( &args,                           \
+                                           sizeof( struct{ type x; }),      \
+                                           alignof( struct{ type x; })))
 
 #define mulle_vararg_next_struct( args, type)    \
    (*_mulle_vararg_next_struct( args, type))
 
+
 // use this for all union types
-#define _mulle_vararg_next_union( args, type)    \
-   ((type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+#define _mulle_vararg_next_union( args, type)                            \
+   ((type *) _mulle_vararg_aligned_struct( &args,                        \
+                                           sizeof( struct{ type x; }),   \
+                                           alignof( struct{ type x; })))
 
 #define mulle_vararg_next_union( args, type)    \
    (*_mulle_vararg_next_union( args, type))
