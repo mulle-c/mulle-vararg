@@ -13,10 +13,3 @@ endif()
 set( SOURCES
 src/mulle-vararg.c
 )
-
-#
-# contents selected with patternfile ??-source--standalone-sources
-#
-set( STANDALONE_SOURCES
-src/mulle-vararg-standalone.c
-)

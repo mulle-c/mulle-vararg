@@ -1,0 +1,49 @@
+## How it works
+
+**mulle-vararg** assumes that the arguments are not layed out in stack
+alignment fashion but like in a struct. The C promotion rules are still
+observed though.
+
+> Remember the C argument promotion rules are
+>
+> 1. char and short to int/unsigned int
+> 2. float to double
+>
+
+Let's assume there is a compiler that uses **mulle-vararg** for variable
+arguments. It collects **all** function parameters and packs them into a struct,
+then passes this struct to the function.
+
+A **printf** function being being called like this:
+
+``` c
+printf( "%d %f %lld\n", (char) 'x', (float) 0.2, 1848LL;
+```
+
+would get its arguments embedded in a struct like this
+
+``` c
+struct
+{
+   char    *format;
+   struct
+   {
+      int         value1;     // standard char -> int promotion
+      double      value2;     // standard float -> double promotion
+      long long   value3;
+   } varargs;
+} _param;
+```
+
+**mulle-vararg** provides the necessary functions to read such a struct. It has
+some experimental code to write to it.
+
+#### Advantages
+
+* Easy to write in C, does not need compiler ABI internals to construct or
+read. You don't need [libffi](//sourceware.org/libffi/) or some such.
+* Cheap forwarding to other functions.
+
+#### Disadvantages
+
+* Not compatible with `<stdarg.h>`
