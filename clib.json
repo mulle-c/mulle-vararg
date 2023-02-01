@@ -1,0 +1,17 @@
+{
+   "name" : "mulle-vararg",
+   "version" : "1.1.4",
+   "description" : "Access variable arguments in struct layout fashion in C",
+   "keywords" : [],
+   "license" : "BSD-3-Clause",
+   "repo" : "mulle-c/mulle-vararg",
+   "src" : [
+      "src/mulle-align.h",
+      "src/mulle-vararg-builder.h",
+      "src/mulle-vararg.c",
+      "src/mulle-vararg.h"
+   ],
+   "dependencies" : {
+      "mulle-c/mulle-c11": "*"
+   }
+}

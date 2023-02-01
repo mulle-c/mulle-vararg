@@ -8,10 +8,19 @@ to
 [varargs](//pubs.opengroup.org/onlinepubs/7908799/xsh/varargs.h.html),
 but not compatible with either.
 
+| Release Version                                       | Release Notes
+|-------------------------------------------------------|--------------
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-vararg/actions)| [RELEASENOTES](RELEASENOTES.md) |
 
-| Release Version
-|-----------------------------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-vararg.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-vararg/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-vararg/actions)
+
+## API
+
+There is an API to access mulle-vararg arguments. You can also build up
+a mulle-vararg manually with the builder functions.
+
+* [Vararg](dox/API_VARARG.md)
+* [VarargBuilder](dox/API_VARARG_BUILDER.md)
+
 
 
 ## How it works
@@ -54,53 +63,46 @@ struct
 **mulle-vararg** provides the necessary functions to read such a struct. It has
 some experimental code to write to it.
 
-
-
 #### Advantages
 
 * Easy to write in C, does not need compiler ABI internals to construct or
 read. You don't need [libffi](//sourceware.org/libffi/) or some such.
 * Cheap forwarding to other functions.
 
-
 #### Disadvantages
 
 * Not compatible with `<stdarg.h>`
-
-
-
-## API
-
-There is an API to access mulle-vararg arguments. You can also build up
-a mulle-vararg manually with the builder functions.
-
-* [Vararg](dox/API_VARARG.md)
-* [VarargBuilder](dox/API_VARARG_BUILDER.md)
-
 
 ### You are here
 
 ![Overview](overview.dot.svg)
 
 
+
+
+
 ## Add
 
-### Either: link library
-
-Use [mulle-sde](//github.com/mulle-sde) to add mulle-buffer to your project:
+Use [mulle-sde](//github.com/mulle-sde) to add mulle-vararg to your project:
 
 ``` sh
-mulle-sde dependency add --c --github mulle-c mulle-buffer
+mulle-sde add github:mulle-c/mulle-vararg
 ```
 
-### Or: add Sources
+To only add the sources of mulle-vararg with dependency
+sources use [clib](https://github.com/clibs/clib):
 
-Alternatively you can read [STEAL.md](//github.com/mulle-c11/dox/STEAL.md) on
-how to add mulle-c source code into your own projects.
+
+``` sh
+clib install --out src/mulle-c mulle-c/mulle-vararg
+```
+
+Add `-isystem src/mulle-c` to your `CFLAGS` and compile all the sources that were downloaded with your project.
+
 
 ## Install
 
-### mulle-sde
+### Install with mulle-sde
 
 Use [mulle-sde](//github.com/mulle-sde) to build and install mulle-vararg and all dependencies:
 
@@ -111,15 +113,13 @@ mulle-sde install --prefix /usr/local \
 
 ### Manual Installation
 
-
 Install the requirements:
 
-Requirements                                 | Description
----------------------------------------------|-----------------------
-[mulle-c11](//github.com/mulle-c/mulle-c11)  | Compiler glue
+| Requirements                                 | Description
+|----------------------------------------------|-----------------------
+| [mulle-c11](https://github.com/mulle-c/mulle-c11)             | 🔀 Cross-platform C compiler glue (and some cpp conveniences)
 
-
-Install into `/usr/local`:
+Install **mulle-vararg** into `/usr/local` with [cmake](https://cmake.org):
 
 ``` sh
 cmake -B build \
@@ -131,13 +131,9 @@ cmake --install build --config Release
 ```
 
 
-### Platforms and Compilers
-
-All platforms and compilers supported by
-[mulle-c11](//github.com/mulle-c/mulle-c11)
-
 ## Author
 
-[Nat!](//www.mulle-kybernetik.com/weblog) for
-[Mulle kybernetiK](//www.mulle-kybernetik.com) and
-[Codeon GmbH](//www.codeon.de)
+[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK
+
+
+

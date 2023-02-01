@@ -1,0 +1,7 @@
+## API
+
+There is an API to access mulle-vararg arguments. You can also build up
+a mulle-vararg manually with the builder functions.
+
+* [Vararg](dox/API_VARARG.md)
+* [VarargBuilder](dox/API_VARARG_BUILDER.md)

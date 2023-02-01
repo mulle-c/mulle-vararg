@@ -19,7 +19,7 @@ first value *AFTER* **a** as the first variable argument.
 
 So this code will effectively output `18`.
 
-```
+``` c
 #include <mulle-vararg/mulle-vararg.h>
 #include <stdio.h>
 
@@ -83,7 +83,7 @@ Use it for all floating point types, like float, double, long double.
 
 Example:
 
-```
+``` c
 mulle_vararg_next_fp( args, float);
 ```
 
@@ -97,7 +97,7 @@ unsigned variants.
 
 Example:
 
-```
+``` c
 mulle_vararg_next_integer( args, unsigned short);
 ```
 
@@ -110,7 +110,7 @@ Use it for all pointer types.
 
 Example:
 
-```
+``` c
 mulle_vararg_next_pointer( args, int *);
 ```
 
@@ -145,7 +145,7 @@ risky!
 
 Example:
 
-```
+``` c
 struct x_t
 {
    int a;
@@ -164,7 +164,7 @@ Get the next union value. Use it for all union types.
 
 Example:
 
-```
+``` c
 union x_t
 {
    int a;
@@ -184,7 +184,7 @@ risky!
 
 Example:
 
-```
+``` c
 union x_t
 {
    int a;
@@ -208,7 +208,7 @@ argument.
 ## Functions
 
 
-###  `mulle_address_align`
+### `mulle_address_align`
 
 `uintptr_t   mulle_address_align( uintptr_t p, unsigned int alignment)`
 
@@ -218,7 +218,7 @@ will return the aligned address.
 e.g. `mulle_address_align( 0x11, 0x10)` will return `0x20`
 
 
-###  `mulle_pointer_align`
+### `mulle_pointer_align`
 
 `void   *mulle_pointer_align( void *p, unsigned int alignment)`
 
@@ -226,7 +226,7 @@ Pass in a pointer **p** and an alignment **alignment**. `mulle_align_pointer`
 will return the aligned pointer.
 
 
-###  `mulle_vararg_count_pointers` - count null terminated vararg pointers
+### `mulle_vararg_count_pointers` - count null terminated vararg pointers
 
 `size_t   mulle_vararg_count_pointers( mulle_vararg_list args, void *p)`
 
@@ -237,7 +237,7 @@ compute the number of non-NULL pointers including `*p`.
 
 Example:
 
-```
+``` c
 #include <mulle-vararg/mulle-vararg.h>
 #include <stdio.h>
 

@@ -12,45 +12,12 @@ endif()
 
 set( INCLUDE_DIRS
 src
-src/generic
-src/reflect
-)
-
-#
-# contents selected with patternfile ??-header--private-generated-headers
-#
-set( PRIVATE_GENERATED_HEADERS
-src/reflect/_mulle-vararg-include-private.h
-)
-
-#
-# contents selected with patternfile ??-header--private-generic-headers
-#
-set( PRIVATE_GENERIC_HEADERS
-src/generic/include-private.h
-)
-
-#
-# contents selected with patternfile ??-header--public-generated-headers
-#
-set( PUBLIC_GENERATED_HEADERS
-src/reflect/_mulle-vararg-include.h
-src/reflect/_mulle-vararg-provide.h
-src/reflect/_mulle-vararg-versioncheck.h
-)
-
-#
-# contents selected with patternfile ??-header--public-generic-headers
-#
-set( PUBLIC_GENERIC_HEADERS
-src/generic/include.h
 )
 
 #
 # contents selected with patternfile ??-header--public-headers
 #
 set( PUBLIC_HEADERS
-src/_dependencies.h
 src/mulle-align.h
 src/mulle-vararg-builder.h
 src/mulle-vararg.h
