@@ -1,3 +1,7 @@
+### 1.1.5
+
+* remove package.json as it conflicts with clib.json
+
 ### 1.1.4
 
 * fix struct/union access macro
