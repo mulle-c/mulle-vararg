@@ -1,3 +1,7 @@
+### 1.1.7
+
+* improved the vararg builder with lots of new functions
+
 ### 1.1.5
 
 * remove package.json as it conflicts with clib.json

@@ -14,7 +14,7 @@
    );
    project =
    {
-      description=" ⏪ Access variable arguments in struct layout fashion in C";
+      description="⏪ Access variable arguments in struct layout fashion in C";
       domain="github";
       name="mulle-vararg";
       user="mulle-c";
