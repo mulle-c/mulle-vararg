@@ -71,7 +71,7 @@ int   main( void)
 //      mulle_flushablebuffer_init( &buffer,
 //                                  storage,
 //                                  sizeof( storage),
-//                                  (mulle_flushablebuffer_flusher_t) fwrite,
+//                                  (mulle_flushablebuffer_flusher_t *) fwrite,
 //                                  stderr);
 //      {
 //         output = mulle_flushablebuffer_as_buffer( &buffer);
