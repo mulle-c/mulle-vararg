@@ -59,3 +59,4 @@ coverage*.html
 *.gcda
 *.gcno
 cola/wilted/
+cmake-build-*/
