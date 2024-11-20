@@ -1,3 +1,9 @@
+### 1.1.8
+
+
+
+* added `mulle_vararg_builder_do` for convenience over `mulle_alloca_do`
+
 ### 1.1.7
 
 * improved the vararg builder with lots of new functions
