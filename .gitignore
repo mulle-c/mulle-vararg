@@ -60,3 +60,6 @@ coverage*.html
 *.gcno
 cola/wilted/
 cmake-build-*/
+CMakeLists.txt.bak
+.mulle/etc/make/build-dir
+vgcore.*
