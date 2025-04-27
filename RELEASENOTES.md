@@ -1,3 +1,7 @@
+### 1.1.9
+
+Various small improvements
+
 ### 1.1.8
 
 
