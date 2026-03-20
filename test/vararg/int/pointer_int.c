@@ -16,7 +16,7 @@ int   main( void)
 {
    mulle_vararg_list   list;
 
-   mulle_vararg_start( list, value.a);
+   _mulle_vararg_start( list, value.a);
 
    printf( "%d\n", mulle_vararg_next_integer( list, int));
 

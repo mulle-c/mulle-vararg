@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.13...99.99)
 
-project( mulle-vararg VERSION 1.2.0 LANGUAGES C)
+project( mulle-vararg VERSION 2.0.0 LANGUAGES C)
 
 
 

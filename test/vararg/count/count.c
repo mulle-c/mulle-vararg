@@ -13,7 +13,7 @@ static size_t   count( struct pointer_32_t *array)
    mulle_vararg_list   list;
    size_t              n;
 
-   mulle_vararg_start( list, array->pointers[ 0]);
+   _mulle_vararg_start( list, array->pointers[ 0]);
 
    n = mulle_vararg_count_pointers( list, array->pointers[ 0]);
 

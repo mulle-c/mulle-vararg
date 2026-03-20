@@ -31,7 +31,7 @@ int   main( void)
    mulle_vararg_list   list;
    union some_union    v;
 
-   mulle_vararg_start( list, value.a);
+   _mulle_vararg_start( list, value.a);
 
    v = mulle_vararg_next_union( list, union some_union);
    printf( "%s\n", v.y);

@@ -33,7 +33,7 @@ int   main( void)
    mulle_vararg_list   list;
    struct some_struct  v;
 
-   mulle_vararg_start( list, value.a);
+   _mulle_vararg_start( list, value.a);
 
    v = mulle_vararg_next_struct( list, struct some_struct);
    printf( "%d, %s\n", v.x, v.y);

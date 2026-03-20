@@ -1,4 +1,5 @@
 # mulle-vararg Library Documentation for AI
+<!-- Keywords: varargs, variadic-functions -->
 
 ## 1. Introduction & Purpose
 
