@@ -3,6 +3,8 @@
    {
       description="⏪ Access variable arguments in struct layout fashion in C";
       domain="github";
+      language="c";
+      dialect="c";
       name="mulle-vararg";
       user="mulle-c";
       repo="mulle-vararg";
