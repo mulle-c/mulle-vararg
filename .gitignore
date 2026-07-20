@@ -71,3 +71,5 @@ build-*/
 .roam
 .graveyard
 *.tmp.*
+*.test.*
+.idea
