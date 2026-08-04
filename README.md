@@ -24,6 +24,11 @@ a mulle-vararg manually with the builder functions.
 * [VarargBuilder](dox/API_VARARG_BUILDER.md)
 
 
+## Documentation & Guides
+
+* [API Summary](asset/dox/api/toc)
+
+
 
 ## How it works
 
