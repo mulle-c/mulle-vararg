@@ -32,7 +32,13 @@ endif()
 # Disable for this platform: `mulle-sourcetree mark mulle-c11 no-cmake-platform-${MULLE_UNAME}`
 # Disable for a sdk: `mulle-sourcetree mark mulle-c11 no-cmake-sdk-<name>`
 #
-if( NOT MULLE__C11_HEADER)
+foreach( _TMP_MULLE__C11_HEADER_TARGET_TARGET mulle-c11)
+   if( TARGET ${_TMP_MULLE__C11_HEADER_TARGET_TARGET})
+      set( MULLE__C11_HEADER_TARGET ${_TMP_MULLE__C11_HEADER_TARGET_TARGET})
+      break()
+   endif()
+endforeach()
+if( NOT MULLE__C11_HEADER AND NOT MULLE__C11_HEADER_TARGET)
    find_file( MULLE__C11_HEADER NAMES
       mulle-c11.h mulle-c11/mulle-c11.h
       NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
@@ -57,5 +63,87 @@ if( NOT MULLE__C11_HEADER)
    else()
       # Disable with: `mulle-sourcetree mark mulle-c11 no-require`
       message( SEND_ERROR "MULLE__C11_HEADER was not found in mulle-c11.h mulle-c11/mulle-c11.h")
+   endif()
+endif()
+
+
+
+#
+# Generated from sourcetree: 762E7E3D-6D2A-4D43-A23D-86D6CCF318BD;mulle-allocator;no-all-load,no-cmake-loader,no-cmake-searchpath,no-import,no-link,no-recurse,no-singlephase;
+# Disable with : `mulle-sourcetree mark mulle-allocator no-header`
+# Disable for this platform: `mulle-sourcetree mark mulle-allocator no-cmake-platform-${MULLE_UNAME}`
+# Disable for a sdk: `mulle-sourcetree mark mulle-allocator no-cmake-sdk-<name>`
+#
+foreach( _TMP_MULLE__ALLOCATOR_HEADER_TARGET_TARGET mulle-allocator)
+   if( TARGET ${_TMP_MULLE__ALLOCATOR_HEADER_TARGET_TARGET})
+      set( MULLE__ALLOCATOR_HEADER_TARGET ${_TMP_MULLE__ALLOCATOR_HEADER_TARGET_TARGET})
+      break()
+   endif()
+endforeach()
+if( NOT MULLE__ALLOCATOR_HEADER AND NOT MULLE__ALLOCATOR_HEADER_TARGET)
+   find_file( MULLE__ALLOCATOR_HEADER NAMES
+      mulle-allocator.h mulle-allocator/mulle-allocator.h
+      NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
+   )
+   if( NOT MULLE__ALLOCATOR_HEADER AND NOT DEPENDENCY_IGNORE_SYSTEM_HEADERS)
+      find_file( MULLE__ALLOCATOR_HEADER NAMES
+         mulle-allocator.h mulle-allocator/mulle-allocator.h
+      )
+   endif()
+   message( STATUS "MULLE__ALLOCATOR_HEADER is ${MULLE__ALLOCATOR_HEADER}")
+
+   #
+   # Add MULLE__ALLOCATOR_HEADER to HEADER_ONLY_LIBRARIES list.
+   # Disable with: `mulle-sourcetree mark mulle-allocator no-cmake-add`
+   #
+   set( HEADER_ONLY_LIBRARIES
+      ${MULLE__ALLOCATOR_HEADER}
+      ${HEADER_ONLY_LIBRARIES}
+   )
+   if( MULLE__ALLOCATOR_HEADER)
+      #
+      # Inherit ObjC loader and link dependency info.
+      # Disable with: `mulle-sourcetree mark mulle-allocator no-cmake-inherit`
+      #
+      get_filename_component( _TMP_MULLE__ALLOCATOR_ROOT "${MULLE__ALLOCATOR_HEADER}" DIRECTORY)
+      get_filename_component( _TMP_MULLE__ALLOCATOR_NAME "${_TMP_MULLE__ALLOCATOR_ROOT}" NAME)
+      get_filename_component( _TMP_MULLE__ALLOCATOR_ROOT "${_TMP_MULLE__ALLOCATOR_ROOT}" DIRECTORY)
+      get_filename_component( _TMP_MULLE__ALLOCATOR_ROOT "${_TMP_MULLE__ALLOCATOR_ROOT}" DIRECTORY)
+      #
+      # Search for "Definitions.cmake" and "DependenciesAndLibraries.cmake" to include.
+      # Disable with: `mulle-sourcetree mark mulle-allocator no-cmake-dependency`
+      #
+      foreach( _TMP_MULLE__ALLOCATOR_NAME IN LISTS _TMP_MULLE__ALLOCATOR_NAME)
+         set( _TMP_MULLE__ALLOCATOR_DIR "${_TMP_MULLE__ALLOCATOR_ROOT}/include/${_TMP_MULLE__ALLOCATOR_NAME}/cmake")
+         # use explicit path to avoid "surprises"
+         if( IS_DIRECTORY "${_TMP_MULLE__ALLOCATOR_DIR}")
+            list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_MULLE__ALLOCATOR_DIR}")
+            # we only want top level INHERIT_OBJC_DEPS, so disable them
+            if( NOT NO_INHERIT_OBJC_DEPS)
+               set( NO_INHERIT_OBJC_DEPS OFF)
+            endif()
+            list( APPEND _TMP_INHERIT_OBJC_DEPS ${NO_INHERIT_OBJC_DEPS})
+            set( NO_INHERIT_OBJC_DEPS ON)
+            #
+            include( "${_TMP_MULLE__ALLOCATOR_DIR}/DependenciesAndLibraries.cmake" OPTIONAL)
+            #
+            list( GET _TMP_INHERIT_OBJC_DEPS -1 NO_INHERIT_OBJC_DEPS)
+            list( REMOVE_AT _TMP_INHERIT_OBJC_DEPS -1)
+            list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_MULLE__ALLOCATOR_DIR}")
+            #
+            unset( MULLE__ALLOCATOR_DEFINITIONS)
+            unset( MULLE__ALLOCATOR_RENDEZVOUS_GLOBALS)
+            include( "${_TMP_MULLE__ALLOCATOR_DIR}/Definitions.cmake" OPTIONAL)
+            list( APPEND INHERITED_DEFINITIONS ${MULLE__ALLOCATOR_DEFINITIONS})
+            include( "${_TMP_MULLE__ALLOCATOR_DIR}/Definitions.cmake" OPTIONAL)
+            list( APPEND RENDEZVOUS_GLOBALS ${MULLE__ALLOCATOR_RENDEZVOUS_GLOBALS})
+            break()
+         else()
+            message( STATUS "${_TMP_MULLE__ALLOCATOR_DIR} not found")
+         endif()
+      endforeach()
+   else()
+      # Disable with: `mulle-sourcetree mark mulle-allocator no-require`
+      message( SEND_ERROR "MULLE__ALLOCATOR_HEADER was not found in mulle-allocator.h mulle-allocator/mulle-allocator.h")
    endif()
 endif()

@@ -13,6 +13,7 @@
       "src/mulle-vararg.h"
    ],
    "dependencies" : {
-      "mulle-c/mulle-c11": "*"
+      "mulle-c/mulle-c11": "*",
+      "mulle-c/mulle-allocator": "*"
    }
 }

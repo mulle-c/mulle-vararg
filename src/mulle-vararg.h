@@ -147,9 +147,10 @@ static inline char  *_mulle_vararg_aligned_pointer( mulle_vararg_list *args, uns
 }
 
 
-// use this for all pointer types
+// use this for all pointer types (including function pointers;
+// cast the void * result for function pointers)
 #define mulle_vararg_next_pointer( args, type)  \
-   (*(type *) _mulle_vararg_aligned_pointer( &args, alignof( struct{ type x; })))
+   ((void *) *((void **) _mulle_vararg_aligned_pointer( &args, alignof( type))))
 
 
 static inline void  *_mulle_vararg_aligned_struct( mulle_vararg_list *args,
