@@ -1,6 +1,6 @@
 {
    "name" : "mulle-vararg",
-   "version" : "1.2.1",
+   "version" : "1.2.2",
    "description" : "⏪ Access variable arguments in struct layout fashion in C",
    "keywords" : [],
    "license" : "BSD-3-Clause",
