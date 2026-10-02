@@ -10,7 +10,7 @@
       repo="mulle-vararg";
       homepage="https://github.com/mulle-c/mulle-vararg";
       license="BSD-3-Clause";
-      version="1.2.2"
+      version="1.2.3"
    };
    dependencies =
    (

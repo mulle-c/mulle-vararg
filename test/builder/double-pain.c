@@ -36,9 +36,6 @@ int   main( void)
    mulle_vararg_list             list;
    mulle_vararg_list             q;
    struct reference              ref;
-   struct mulle_flushablebuffer  buffer;
-   struct mulle_buffer           *output;
-   char                          storage[ 256];
 
    list = mulle_vararg_list_make( buf);
 
