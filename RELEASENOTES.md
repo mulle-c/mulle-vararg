@@ -1,3 +1,10 @@
+### 1.2.3
+
+
+
+* exercise all `mulle_vararg_sizeof_*` and `mulle_vararg_alignof_*` convenience macros to catch routing regressions such as the `sizeof_float` issue
+* round-trip every typed `mulle_vararg_push_*/next_*` pair, plus `mulle_vararg_builder_do` and `mulle_vararg_start_fp`
+
 ### 1.2.2
 
 
