@@ -76,3 +76,9 @@ build-*/
 .kiro/
 TODO.md
 REVIEW.md
+.vscode/
+.touch
+*.orig
+*.workspace
+*.*-workspace
+research/
