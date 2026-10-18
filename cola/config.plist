@@ -2,5 +2,9 @@
    config = {
    showButtons = YES;
    showCodacy = NO;
+   showStd = "C11";
+   showApis = "ansi";
+   showMemory = "none";
+   showThreads = "threadsafe";
    }
 }

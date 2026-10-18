@@ -10,7 +10,6 @@
       repo="mulle-vararg";
       homepage="https://github.com/mulle-c/mulle-vararg";
       license="BSD-3-Clause";
-      version="1.2.3"
    };
    dependencies =
    (
@@ -20,6 +19,14 @@
          name="mulle-c11";
          repo="mulle-c11";
          url="https://github.com/mulle-c/mulle-c11";
+         user="mulle-c";
+      },
+      {
+         description="🔄 Flexible C memory allocation scheme";
+         domain="github";
+         name="mulle-allocator";
+         repo="mulle-allocator";
+         url="https://github.com/mulle-c/mulle-allocator";
          user="mulle-c";
       }
    );
