@@ -2,6 +2,16 @@
 
 
 
+* `add_subdirectory` consumers now again inherit the library include directory, so `#include `<mulle-core/mulle-core.h>`` resolves without extra setup
+* whole-archive force-linking now requires CMake 3.30, preventing generate failures on CMake 3.24-3.29
+
+
+
+
+
+
+
+
 
 * exercise all `mulle_vararg_sizeof_*` and `mulle_vararg_alignof_*` convenience macros to catch routing regressions such as the `sizeof_float` issue
 * round-trip every typed `mulle_vararg_push_*/next_*` pair, plus `mulle_vararg_builder_do` and `mulle_vararg_start_fp`
